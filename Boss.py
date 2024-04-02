@@ -18,16 +18,21 @@ class Enemies():
         return Enemies
 
 
-with open("enemies.json", "r") as f:
-    # Serialize the updated Python list to a JSON string
-    data = json.load(f)
+f = open("enemies.json",)
+data = json.load(f)
     ##Call classes in here
 
 def new_Enemies():
     Name = input("Enter an Enemies Name: ")
     health = int(input("Enter their health: "))
     attack = int(input("Enter their attack: "))
-    enemy = Enemies(f"{Name}", health, attack)
-    data.append(enemy.dictionary())
+    x = Enemies(Name, health, attack)
+    data.append(x.dictionary())
 
 new_Enemies()
+
+
+
+
+
+
