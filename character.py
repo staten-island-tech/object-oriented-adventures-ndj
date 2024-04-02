@@ -1,6 +1,5 @@
 import json
 import turtle
-import pandas
 import time
 
 screen = turtle.Screen()
@@ -9,8 +8,8 @@ screen.title("Conquest")
 image = "world_map.gif"
 screen.addshape(image)
 turtle.shape(image)
-# screen.textinput(title="How to use map", prompt="Utilize the scrollbars on the right and bottom of the screen to scroll up/down and left/right respectively.")
-# starting_location = screen.textinput(title="Starting country", prompt="Enter starting location: ")
+screen.textinput(title="How to use map", prompt="Utilize the scrollbars on the right and bottom of the screen to scroll up/down and left/right respectively.")
+starting_location = screen.textinput(title="Starting country", prompt="Enter starting location: ")
 turtler = turtle.Turtle("square")
 turtler.hideturtle()
 turtler.penup()
