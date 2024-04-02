@@ -2,21 +2,27 @@ name = input("Enter your characters name: ")
 age = int(input("Enter your characters starting age: (1,18)"))
 print(name)
 print(age)
+
+x = []
 def colonies():
     colony = input("Enter the colony you want to start off at:(North America/South America/Europe/Africa/Asia/Australia) ")
-    for colony in colonies:
-        if colony== "North America":
-            print(colony)
+    for i in colony:
+        if i == "North America":
             print("Welcome to your new adventure!")
-        if colony == "South America":
-            print(colony)
+            x.append(colony)
+        elif i == "South America":
             print("Good luck escaping the walls!")
-        if colony == "Europe":
+            x.append(colony)
+        elif colony == "Europe":
             print("Get geared up for your new journey!")
-        if colony == "Africa":
+            x.append(colony)
+        elif colony == "Africa":
             print("Don't try and become dehydrated!")
-        if colony == "Asia":
+            x.append(colony)
+        elif colony == "Asia":
             print("Welcome to the largest continent in the world!")
-        if colony == "Australia":
+            x.append(colony)
+        elif colony == "Australia":
             print("Don't let the kangaroos hurt you!")
+            x.append(colony)
 colonies()
