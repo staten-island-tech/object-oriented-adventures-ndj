@@ -1,7 +1,23 @@
+import turtle 
+
 name = input("Enter your characters name: ")
 age = int(input("Enter your characters starting age: (1,18)"))
 print(name)
 print(age)
+screen = turtle.Screen()
+screen.screensize(2600, 1400)
+screen.title("Conquest")
+image = "world_map.gif"
+screen.addshape(image)
+turtle.shape(image)
+# screen.textinput(title="How to use map", prompt="Utilize the scrollbars on the right and bottom of the screen to scroll up/down and left/right respectively.")
+# starting_location = screen.textinput(title="Starting country", prompt="Enter starting location: ")
+turtler = turtle.Turtle("square")
+turtler.hideturtle()
+turtler.penup()
+turtler.goto(-940, 290)
+turtler.shapesize(5, 5)
+turtler.color("red")
 
 x = []
 def colonies():
