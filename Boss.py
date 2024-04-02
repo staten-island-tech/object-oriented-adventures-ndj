@@ -30,9 +30,3 @@ def new_Enemies():
     data.append(x.dictionary())
 
 new_Enemies()
-
-
-
-
-
-
