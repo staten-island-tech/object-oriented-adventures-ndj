@@ -1,29 +1,5 @@
 import json
-import turtle
-import time
-screen = turtle.Screen()
-screen.screensize(2600, 1400)
-screen.title("Conquest")
-image = "world_map.gif"
-screen.addshape(image)
-turtle.shape(image)
-# screen.textinput(title="How to use map", prompt="Utilize the scrollbars on the right and bottom of the screen to scroll up/down and left/right respectively.")
-# starting_location = screen.textinput(title="Starting country", prompt="Enter starting location: ")
-turtler = turtle.Turtle("square")
-turtler.hideturtle()
-turtler.penup()
-turtler.goto(-940, 290)
-turtler.shapesize(5, 5)
-turtler.color("red")
-a = True
-while a:
-    time.sleep(0.5)
-    turtler.showturtle()
-    time.sleep(0.5)
-    turtler.hideturtle()
-    screen.update()
 
-turtle.mainloop()
 class Create_Character():
 
     def __init__(self, name, age, location, player_type):
