@@ -9,7 +9,7 @@ name = player_inputs.player_name()
 age = player_inputs.player_age()
 colony = player_inputs.starting_location()
 starting_location = colony[1]
-Character = character.Create_Character(f'{name}', age, f'{starting_location}', 'royal')
+Character = character.Create_Character(f'{name}', age, f'{starting_location}')
 player = Character.player()
 with open("player.json", "w") as file:
     json.dump(player, file)
@@ -19,6 +19,9 @@ royal = screen.game_screen("royal.gif", "Royal")
 nomad = screen.game_screen("nomad.gif", "Nomad")
 peasant = screen.game_screen("peasant.gif", "Peasant")
 assassin = screen.game_screen("assassin.gif", "Assassin")
-
+clans = [warrior, royal, nomad, peasant, assassin]
+for clan in clans:
+    if player['type'] == f'{clan}':
+        clan.create(100, 100)
 
 turtle.mainloop()

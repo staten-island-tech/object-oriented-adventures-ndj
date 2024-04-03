@@ -1,13 +1,25 @@
 import json
+import random
 
 class Create_Character():
 
-    def __init__(self, name, age, location, player_type):
+    def __init__(self, name, age, location):
         self.name = name
         self.age = age
         self.location = location
-        self.player_type = player_type
         self.conquered_nations = []
+        random_integer = random.randint(1, 30)
+        if random_integer == 30:
+            self.player_type = 'royal'
+        elif 1 <= random_integer <= 10:
+            self.player_type = 'peasant'
+        elif 11 <= random_integer <= 18:
+            self.player_type = 'assassin'
+        elif 19 <= random_integer <= 25:
+            self.player_type = 'nomad'
+        elif 26 <= random_integer <= 29:
+            self.player_type = 'warrior'
+
     
     def player(self):
         player = {
@@ -18,19 +30,19 @@ class Create_Character():
             'type': self.player_type,
             'status': 'alive'
         }
-        health = 100
-        attack = 20
+        health = 90
+        attack = 25
         if player['type'] == 'assassin':
             health = 70
             attack = 25
         elif player['type'] == 'royal':
-            health = 80
+            health = 100
             attack = 30
         elif player['type'] == 'peasant':
-            health = 60
-            attack = 15
+            health = 65
+            attack = 20
         elif player['type'] == 'nomad':
-            health = 90
+            health = 80
             attack = 25
         player['health'] = health
         self.initial_health = health
