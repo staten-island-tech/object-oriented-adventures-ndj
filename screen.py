@@ -5,9 +5,9 @@ class game_screen():
         self.image = image
         self.title = title
     
-    def create(self):
+    def create(self, width, height):
         screen = turtle.Screen()
-        screen.screensize(2600, 1400)
+        screen.screensize(width, height)
         screen.title(self.title)
         screen.addshape(self.image)
         turtle.shape(self.image)
