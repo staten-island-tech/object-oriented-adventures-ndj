@@ -44,3 +44,5 @@ class player_inputs():
                 return "Don't let the kangaroos hurt you!", self.colony
             else:
                 self.conquest.text_input("Don't be annoying", "Click OK and then enter ONE OF THE OPTIONS")
+    
+    
