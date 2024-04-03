@@ -19,9 +19,15 @@ royal = screen.game_screen("royal.gif", "Royal")
 nomad = screen.game_screen("nomad.gif", "Nomad")
 peasant = screen.game_screen("peasant.gif", "Peasant")
 assassin = screen.game_screen("assassin.gif", "Assassin")
-clans = [warrior, royal, nomad, peasant, assassin]
-for clan in clans:
-    if player['type'] == f'{clan}':
-        clan.create(100, 100)
+if player['type'] == 'warrior':
+    warrior.create(100, 100)
+elif player['type'] == 'peasant':
+    peasant.create(100, 100)
+elif player['type'] == 'nomad':
+    nomad.create(100, 100)
+elif player['type'] == 'assassin':
+    assassin.create(100, 100)
+elif player['type'] == 'royal':
+    royal.create(100, 100)
 
 turtle.mainloop()
