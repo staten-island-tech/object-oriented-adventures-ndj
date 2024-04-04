@@ -9,6 +9,7 @@ name = player_inputs.player_name()
 age = player_inputs.player_age()
 colony = player_inputs.starting_location()
 starting_location = colony[1]
+screen_text = colony[0]
 Character = character.Create_Character(f'{name}', age, f'{starting_location}')
 player = Character.player()
 with open("player.json", "w") as file:
