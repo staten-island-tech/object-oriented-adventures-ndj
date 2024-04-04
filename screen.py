@@ -14,7 +14,6 @@ class game_screen():
         turtle.shape(self.image)
         self.screen = screen
         return self.screen
-        
     
     def text_input(self, title, text):
         input = self.screen.textinput(title=f"{title}", prompt=f"{text}")
