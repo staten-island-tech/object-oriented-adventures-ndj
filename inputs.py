@@ -1,11 +1,12 @@
 import turtle
 import screen
 
+
 class player_inputs():
 
     def __init__(self):
-        self.conquest = screen.create("world_map.gif", "Conquest")
-        self.map = self.conquest.create(2600, 1400)
+        self.conquest = screen.game_screen("world_map.gif", "Conquest")
+        self.map = self.conquest.create(100, 100)
         self.conquest.text_input("How to use screens", "Utilize the scrollbars on the right and bottom of the screen to scroll up/down and left/right respectively. Go full screen for best experience.")
         
     def player_name(self):
