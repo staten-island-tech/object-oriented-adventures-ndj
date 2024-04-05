@@ -16,7 +16,7 @@ Character = character.Create_Character(f'{name}', age, f'{starting_location}')
 player = Character.player()
 with open("player.json", "w") as file:
     json.dump(player, file)
-starting_location = player_inputs.starting_location_map()
+starting_continent = player_inputs.starting_location_map()
 
 turtle.write(arg=f'{screen_text}', align='center', font=('Times New Roman', 50, 'normal'))
 time.sleep(1)
@@ -61,7 +61,13 @@ turtle.goto(0, -350)
 turtle.write(arg=f"{player['type'].capitalize()}", align='center', font=('Times New Roman', 50, 'bold'))
 turtle.goto(0,0)
 turtle.update()
+time.sleep(1)
+turtle.clear()
+starting_continent.create(100, 100)
+starting_continent.addshape(f"{player['type']}.gif")
+turtle.shape(f"{player['type']}.gif")
 
+turtle.update()
 
 
 
