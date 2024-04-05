@@ -27,7 +27,6 @@ class player_inputs():
         return self.age
 
     def starting_location(self):
-        
         a = True
         while a:
             self.colony = self.conquest.text_input("Starting location", "Enter the continent you want to start off at:(North America/South America/Europe/Africa/Asia/Australia)")
