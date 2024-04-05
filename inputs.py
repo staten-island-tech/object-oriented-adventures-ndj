@@ -51,19 +51,25 @@ class player_inputs():
         if self.colony == 'South america':
             south_america = screen.game_screen("south_america.gif", "South America")
             south_america.create(100, 100)
+            return south_america
         elif self.colony == 'North america':
             north_america = screen.game_screen("north_america.gif", "North America")
             north_america.create(100, 100)
+            return north_america
         elif self.colony == 'Africa':
             africa = screen.game_screen("africa.gif", "Africa")
             africa.create(100, 100)
+            return africa
         elif self.colony == 'Asia':
             asia = screen.game_screen("asia.gif", "Asia")
             asia.create(100, 100)
+            return asia
         elif self.colony == 'Europe':
             europe = screen.game_screen("europe.gif", "Europe")
             europe.create(100, 100)
+            return europe
         elif self.colony == 'Australia':
             Australia = screen.game_screen("oceania.gif", "Oceania")
             Australia.create(100, 100)
+            return Australia
 

@@ -16,7 +16,7 @@ Character = character.Create_Character(f'{name}', age, f'{starting_location}')
 player = Character.player()
 with open("player.json", "w") as file:
     json.dump(player, file)
-player_inputs.starting_location_map()
+starting_location = player_inputs.starting_location_map()
 
 turtle.write(arg=f'{screen_text}', align='center', font=('Times New Roman', 50, 'normal'))
 time.sleep(1)
