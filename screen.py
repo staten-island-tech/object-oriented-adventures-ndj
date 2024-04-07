@@ -1,5 +1,6 @@
 import turtle
 
+
 class game_screen():
     def __init__(self, image, title):
         self.image = image
