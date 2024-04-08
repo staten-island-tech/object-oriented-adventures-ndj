@@ -87,10 +87,13 @@ while time.time() < t_end:
     player.showturtle()
 # a.tracer(0)
 # a.listen()
-# turtle.update()
-# turtle.tracer(1)
-# a.onkeypress(lambda: player.forward(50), key="Right")
-# a.onkeypress(lambda: player.backward(50) , key="Left")
+turtle.update()
+turtle.tracer(1)
+a.onkeypress(lambda: player.forward(50), key="Right")
+a.onkeypress(lambda: player.backward(50) , key="Left")
+turtle.clear()
+south_america = screen.game_screen("map", "map.gif")
+south_america.create(100, 100)
 
 
 
