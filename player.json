@@ -1,1 +1,1 @@
-{"name": "Nicholas", "age": 14, "starting_location": "north_america", "current_location": "north_america", "type": "peasant", "status": "alive", "health": 65, "attack": 20}
+{"name": "Nicholas", "age": 14, "starting_location": "north_america", "current_location": "north_america", "type": "nomad", "status": "alive", "health": 80, "attack": 25}

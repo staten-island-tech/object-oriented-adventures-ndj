@@ -21,3 +21,4 @@ class game_screen():
         input = self.screen.textinput(title=f"{title}", prompt=f"{text}")
         return input
     
+    
