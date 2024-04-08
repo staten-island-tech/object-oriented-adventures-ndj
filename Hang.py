@@ -17,7 +17,7 @@ class Hangman():
                 print("You failed to guess the word!!!")
     
     
-    def create(self, width, height, title):
+    def create(self, width, height, screen):
         screen = turtle.Screen()
         screen.screensize(width, height)
         screen.title(self.title)
