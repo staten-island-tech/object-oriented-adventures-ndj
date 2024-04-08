@@ -1,5 +1,6 @@
 import turtle
 
+
 class game_screen():
     def __init__(self, image, title):
         self.image = image
@@ -19,4 +20,5 @@ class game_screen():
     def text_input(self, title, text):
         input = self.screen.textinput(title=f"{title}", prompt=f"{text}")
         return input
+    
     

@@ -31,17 +31,17 @@ class player_inputs():
         while a:
             self.colony = self.conquest.text_input("Starting location", "Enter the continent you want to start off at:(North America/South America/Europe/Africa/Asia/Australia)")
             if self.colony.capitalize() == "North america":
-                return "Welcome to your new adventure!", "North america"
+                return "Welcome to your new adventure!", "north_america"
             elif self.colony.capitalize() == "South america":
-                return "Good luck escaping the walls!", "South america"
+                return "Good luck escaping the walls!", "south_america"
             elif self.colony.capitalize() == "Europe":               
-                return "Get geared up for your new journey!", "Europe"
+                return "Get geared up for your new journey!", "europe"
             elif self.colony.capitalize() == "Africa":
-                return "Don't try and become dehydrated!", "Africa"
+                return "Don't try and become dehydrated!", "africa"
             elif self.colony.capitalize() == "Asia":
-                return "Welcome to the largest continent in the world!", "Asia"
+                return "Welcome to the largest continent in the world!", "asia"
             elif self.colony.capitalize() == "Australia":
-                return "Don't let the kangaroos hurt you!", "Australia"
+                return "Don't let the kangaroos hurt you!", "oceania"
             else:
                 self.conquest.text_input("Don't be annoying", "Click OK and then enter ONE OF THE OPTIONS")
 
