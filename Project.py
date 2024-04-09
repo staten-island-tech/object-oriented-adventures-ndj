@@ -70,7 +70,11 @@ new_screen = screen.game_screen(f"blank.gif", "Get ready for adventure")
 a = new_screen.create(100, 100)
 turtle.penup()
 turtle.goto(0, 450)
-turtle.write(arg=f"{starting_location.capitalize()}", align='center', font=('Times New Roman', 50, 'bold'))
+location = str.split(starting_location, "_")
+location1 = ""
+for i in location:
+    location1 = location1 + " " + i.capitalize()
+turtle.write(arg=f"{location1}", align='center', font=('Times New Roman', 50, 'bold'))
 turtle.goto(0,0)
 continent = turtle.Turtle(f"{starting_location}.gif")
 player = turtle.Turtle(f"{player['type']}.gif")
@@ -85,12 +89,40 @@ while time.time() < t_end:
     player.hideturtle()
     time.sleep(0.3)
     player.showturtle()
-# a.tracer(0)
-# a.listen()
-# turtle.update()
-# turtle.tracer(1)
-# a.onkeypress(lambda: player.forward(50), key="Right")
-# a.onkeypress(lambda: player.backward(50) , key="Left")
+
+continent.hideturtle()
+turtle.clear()
+south_america = screen.game_screen("map.gif", "map")
+south_america = south_america.create(4000, 2000)
+south_america.tracer(0)
+south_america.listen()
+player.goto(0, 0)
+turtle.update()
+turtle.tracer(1)
+canvas = south_america.getcanvas()
+def move_left():
+    canvas.xview_scroll(-1, "units")
+    player.setx(player.xcor() - 50)
+
+def move_right():
+    canvas.xview_scroll(1, "units")
+    player.setx(player.xcor() + 50)
+
+def move_up():
+    canvas.yview_scroll(-1, "units")
+    player.sety(player.ycor() + 50)
+
+def move_down():
+    canvas.yview_scroll(1, "units")
+    player.sety(player.ycor() - 50)
+
+canvas.config(xscrollincrement=str(50))
+canvas.config(yscrollincrement=str(50))
+player.speed(0)
+south_america.onkeypress(lambda: move_right(), key="Right")
+south_america.onkeypress(lambda: move_left(), key="Left")
+south_america.onkeypress(lambda: move_up(), key="Up")
+south_america.onkeypress(lambda: move_down(), key="Down")
 
 
 
