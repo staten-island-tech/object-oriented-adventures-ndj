@@ -93,7 +93,7 @@ while time.time() < t_end:
 continent.hideturtle()
 turtle.clear()
 south_america = screen.game_screen("map.gif", "map")
-south_america = south_america.create(6000, 3000)
+south_america = south_america.create(8200, 3000)
 south_america.tracer(0)
 south_america.listen()
 player.goto(0, 0)
