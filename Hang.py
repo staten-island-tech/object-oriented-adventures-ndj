@@ -6,7 +6,8 @@ class Hangman():
             print("Wow, I didn't think you were brave enough for this occasion...")
             if self.input == 'N':
                 print("As I thought, you were not as brave as they all say...")
-        
+
+
         
     def words(self):
         word = ['across',  'against', 'laugh',  'middle',  'minute',  'mountain', 'ninth', 'ocean', 'office', 'parent', 'peanut', 'pencil', 'picnic', 'seconds', 'slowly', 'stories', 'student', 'sudden', 'suit', 'sure', 'swimming', 'though', 'threw', 'tired', 'well', 'whole', 'whose', 'weird', 'wouldnt', 'writing', 'written', 'wrote', 'yell', 'young']
@@ -14,20 +15,23 @@ class Hangman():
         while letterss == word:
             if self.count == 10:
                 print("You failed to guess to guess the number of nukes I have, now you die by my NUKES!!!")
-                self.death -= 1 
+                self.death += 1 
+            elif self.death == 5:
+                print("You must restart back at your originated checkpoint")
             elif letterss == word:
                 print("You found the word!!!")
                 print('It took you', self.count, 'guesses!')
                 print('You can finally move on to the next mini-game...')
                 print(self.guesslist)
             elif letterss != word:
-                self.count += 1
+                self.count+= 1
                 self.guesslist.append(self.guess)
-
     def tries(self):
         self.count = 1 
         self.guess = 0
+        self.death = 1
         self.guesslist = []
+
   
     def __init__(self, letters, count, death, lives):
         self.letters = letters    
