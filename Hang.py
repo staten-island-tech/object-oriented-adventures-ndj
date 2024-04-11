@@ -2,7 +2,7 @@ hangman_pic = "HANGMNA.gif"
 input = input("Welcome to the 'Hangman' minigame, are you ready to begin?: (Y/N)")
 while input == 'Y':
     print("Wow, I didn't think you were brave enough for this occasion...")
-    a = hangman_pic = "HANGMNA.gif"
+    print("HANGMNA.gif")
 while input == 'N':
         print("As I thought, you were not as brave as they all say...")
 
