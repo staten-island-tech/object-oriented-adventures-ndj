@@ -1,40 +1,61 @@
+import random
+
 class Hangman():
 
+    def __init__(self, letters, count, guess):
+        self.letters = letters    
+        self.count = count
+        self.guess = guess
+
+
     def inputs(self):
-        self.input = input("Welcome to the 'Hangman' minigame, are you ready to begin?: (Y/N)")
-        while self.input == 'Y':
+        input = input("Welcome to the 'Hangman' minigame, are you ready to begin?: (Y/N)")
+        if input == 'Y':
             print("Wow, I didn't think you were brave enough for this occasion...")
-            if self.input == 'N':
-                print("As I thought, you were not as brave as they all say...")
+        if input == 'N':
+            print("As I thought, you were not as brave as they all say...")
 
 
-        
     def words(self):
         word = ['across',  'against', 'laugh',  'middle',  'minute',  'mountain', 'ninth', 'ocean', 'office', 'parent', 'peanut', 'pencil', 'picnic', 'seconds', 'slowly', 'stories', 'student', 'sudden', 'suit', 'sure', 'swimming', 'though', 'threw', 'tired', 'well', 'whole', 'whose', 'weird', 'wouldnt', 'writing', 'written', 'wrote', 'yell', 'young']
         letterss = ['a', 'b','c','d','e','f','g','h','i','j','k','l','m','n','o','p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-        while letterss == word:
-            if self.count == 10:
+        count = 1
+        guess = 0 
+        guesslist = []
+        word_chooser = random.choice(word)
+        while letterss != word_chooser:
+            guess = print("Enter another letter to guess:")
+            if count == 10:
                 print("You failed to guess to guess the number of nukes I have, now you die by my NUKES!!!")
-                self.death += 1 
-            elif self.death == 5:
-                print("You must restart back at your originated checkpoint")
-            elif letterss == word:
+                death += 1 
+            if letterss == word:
                 print("You found the word!!!")
-                print('It took you', self.count, 'guesses!')
+                print('It took you', count, 'guesses!')
                 print('You can finally move on to the next mini-game...')
-                print(self.guesslist)
+                print(guesslist)
             elif letterss != word:
-                self.count+= 1
-                self.guesslist.append(self.guess)
-    def tries(self):
-        self.count = 1 
-        self.guess = 0
-        self.death = 1
-        self.guesslist = []
+                count+= 1
+                print("Guess another letter!")
+                guesslist.append(guess)
 
-  
-    def __init__(self, letters, count, death, lives):
-        self.letters = letters    
-        self.count = count
-        self.death = death
-        self.lives = lives
+
+word = ['across',  'against', 'laugh',  'middle',  'minute',  'mountain', 'ninth', 'ocean', 'office', 'parent', 'peanut', 'pencil', 'picnic', 'seconds', 'slowly', 'stories', 'student', 'sudden', 'suit', 'sure', 'swimming', 'though', 'threw', 'tired', 'well', 'whole', 'whose', 'weird', 'wouldnt', 'writing', 'written', 'wrote', 'yell', 'young']
+letterss = ['a', 'b','c','d','e','f','g','h','i','j','k','l','m','n','o','p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+count = 1
+guess = 0 
+guesslist = []
+word_chooser = random.choice(word)
+        
+while letterss != word_chooser:
+    guess = print("Enter a letter to guess: ")
+    guesslist.append(guess)
+            
+    if count == 10:
+        print("You failed to guess to guess the number of nukes I have, now you die by my NUKES!!!")
+        guesslist.append(guess)
+    elif letterss == word_chooser:
+        print("You found the word!!!")
+        print('It took you', count, 'guesses!')
+        print('You can finally move on to the next mini-game...')
+        print(guesslist)
+
