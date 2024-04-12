@@ -4,6 +4,7 @@ import inputs
 import screen
 import json
 import time
+import maps
 
 player_inputs = inputs.player_inputs()
 
@@ -92,37 +93,11 @@ while time.time() < t_end:
 
 continent.hideturtle()
 turtle.clear()
-south_america = screen.game_screen("map.gif", "map")
-south_america = south_america.create(12000, 3000)
-south_america.tracer(0)
-south_america.listen()
-player.goto(-100, 50)
-turtle.update()
-turtle.tracer(1)
-canvas = south_america.getcanvas()
-def move_left():
-    canvas.xview_scroll(-1, "units")
-    player.setx(player.xcor() - 50)
-
-def move_right():
-    canvas.xview_scroll(1, "units")
-    player.setx(player.xcor() + 50)
-
-def move_up():
-    canvas.yview_scroll(-1, "units")
-    player.sety(player.ycor() + 50)
-
-def move_down():
-    canvas.yview_scroll(1, "units")
-    player.sety(player.ycor() - 50)
-
-canvas.config(xscrollincrement=str(50))
-canvas.config(yscrollincrement=str(50))
-player.speed(0)
-south_america.onkeypress(lambda: move_right(), key="Right")
-south_america.onkeypress(lambda: move_left(), key="Left")
-south_america.onkeypress(lambda: move_up(), key="Up")
-south_america.onkeypress(lambda: move_down(), key="Down")
+south_america = maps.Map("map.gif", player)
+south_america.screen.onkeypress(lambda: south_america.move_right(), key="Right")
+south_america.screen.onkeypress(lambda: south_america.move_left(), key="Left")
+south_america.screen.onkeypress(lambda: south_america.move_up(), key="Up")
+south_america.screen.onkeypress(lambda: south_america.move_down(), key="Down")
 
 
 
