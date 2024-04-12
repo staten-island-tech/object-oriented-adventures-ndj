@@ -25,15 +25,15 @@ enemies = json.load(f)
     ##Call classes in here
 
 
-Name = input("Enter an Enemies Name: ")
-health = int(input("Enter their health: "))
-attack = int(input("Enter their attack: "))
-continent = input("Enter their continent: ")
-x = Enemies(Name, health, attack, continent)
-enemies.append(x.__dict__)
-# for enemy in enemies:
-#     if enemy['continent'] == 'South America':
-#         print(enemy['Name'] + str(enemy['attack']))
+# Name = input("Enter an Enemies Name: ")
+# health = int(input("Enter their health: "))
+# attack = int(input("Enter their attack: "))
+# continent = input("Enter their continent: ")
+# x = Enemies(Name, health, attack, continent)
+# enemies.append(x.__dict__)
+for enemy in enemies:
+    if enemy['continent'] == 'Africa':
+        print(enemy['Name'] + str(enemy['attack']))
 
 
 #No code needed below this line
