@@ -93,12 +93,13 @@ while time.time() < t_end:
 
 continent.hideturtle()
 turtle.clear()
-starting_map = maps.Map(f"{location1.lower().strip()}_map.gif", player)
+starting_map = maps.Map(f"{starting_location}_map.gif", player)
 
-starting_map.screen.onkeypress(lambda: starting_map.move_right(), key="Right")
-starting_map.screen.onkeypress(lambda: starting_map.move_left(), key="Left")
-starting_map.screen.onkeypress(lambda: starting_map.move_up(), key="Up")
-starting_map.screen.onkeypress(lambda: starting_map.move_down(), key="Down")
+
+starting_map.screen.onkeypress(lambda: starting_map.move_right_maps(), key="Right")
+starting_map.screen.onkeypress(lambda: starting_map.move_left_maps(), key="Left")
+starting_map.screen.onkeypress(lambda: starting_map.move_up_maps(), key="Up")
+starting_map.screen.onkeypress(lambda: starting_map.move_down_maps(), key="Down")
 
 
 
