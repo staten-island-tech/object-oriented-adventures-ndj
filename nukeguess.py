@@ -10,7 +10,7 @@ while guess != number:
     guess = int(input("Enter Guess: "))
    
     if count == 3:
-        print("You failed to guess to guess the number of nukes I have, now you die by my NUKES!!!")
+            print("You failed to guess to guess the number of nukes I have, now you die by my NUKES!!!")
     elif guess < number:
         print("Guess higher!")
         count += 1
