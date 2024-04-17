@@ -4,6 +4,7 @@ import screen
 class Map():
     def __init__(self, map, player):
         self.map = map
+        self.location = ''
         a = screen.game_screen(self.map, "map")
         self.screen = a.create(12000, 3000)
         self.screen.tracer(0)
@@ -20,6 +21,7 @@ class Map():
     
     def move_left(self):
         if self.player.xcor() < -2100:
+
             return
         elif self.player.xcor() < -400 and self.player.ycor() > 200:
             return
