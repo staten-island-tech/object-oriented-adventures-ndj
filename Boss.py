@@ -32,7 +32,7 @@ enemies = json.load(f)
 # x = Enemies(Name, health, attack, continent)
 # enemies.append(x.__dict__)
 for enemy in enemies:
-    if enemy['continent'] == 'Africa':
+    if enemy['continent'] == 'North America':
         print(enemy['Name'] + str(enemy['attack']))
 
 
