@@ -1,5 +1,6 @@
 import turtle
 import screen
+import market
 
 class Map():
     def __init__(self, map, player):
@@ -19,10 +20,22 @@ class Map():
         self.canvas.config(xscrollincrement=str(50))
         self.canvas.config(yscrollincrement=str(50))
     
-    def move_left(self):
-        if self.player.xcor() < -2100:
+    def deactivate(self):
+        self.screen.onkeypress(lambda: None, "Up")
+        self.screen.onkeypress(lambda: None, "Left")
+        self.screen.onkeypress(lambda: None, "Right")
+        self.screen.onkeypress(lambda: None, "Down")
+    
+    def market(self):
+        market_map = market.Market(self.player)
+        market_map.screen.onkeypress(lambda: market_map.move_left, "Left")
+        market_map.screen.onkeypress(lambda: market_map.move_right, "Right")
+        market_map.screen.onkeypress(lambda: market_map.move_up, "Up")
+        market_map.screen.onkeypress(lambda: market_map.move_down, "Down")
 
-            return
+    def move_left_maps(self):
+        if self.player.xcor() < -2100:
+            self.market()
         elif self.player.xcor() < -400 and self.player.ycor() > 200:
             return
         elif 2180 < self.player.xcor() < 2250 and self.player.ycor() > 200:
@@ -37,8 +50,9 @@ class Map():
             self.canvas.xview_scroll(-1, "units")
             self.player.setx(self.player.xcor() - 50)
     
-    def move_right(self):
+    def move_right_maps(self):
         if self.player.xcor() > 6000:
+            self.deactivate()
             return
         elif -280 > self.player.xcor() > -350 and self.player.ycor() > 200:
             return
@@ -54,8 +68,9 @@ class Map():
             self.canvas.xview_scroll(1, "units")
             self.player.setx(self.player.xcor() + 50)
 
-    def move_up(self):
+    def move_up_maps(self):
         if self.player.ycor() > 1500:
+            self.deactivate()
             return
         elif self.player.ycor() > 180 and -3000 < self.player.xcor() < -430:
             return
@@ -69,9 +84,10 @@ class Map():
             self.canvas.yview_scroll(-1, "units")
             self.player.sety(self.player.ycor() + 50)
 
-    def move_down(self):
+    def move_down_maps(self):
         
         if self.player.ycor() < -1500:
+            self.deactivate()
             return
         elif self.player.ycor() < 70 and -3000 < self.player.xcor() < -430:
             return
