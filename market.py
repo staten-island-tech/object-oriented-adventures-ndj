@@ -26,6 +26,8 @@ class Market():
         self.player.setx(self.player.xcor() - 50)
 
     def move_right(self):
+        if self.player.xcor() > 3000:
+            return
         self.canvas.xview_scroll(1, "units")
         self.player.setx(self.player.xcor() + 50)
         
