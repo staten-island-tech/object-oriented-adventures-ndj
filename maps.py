@@ -28,10 +28,10 @@ class Map():
     
     def market(self):
         market_map = market.Market(self.player)
-        market_map.screen.onkeypress(lambda: market_map.move_left, "Left")
-        market_map.screen.onkeypress(lambda: market_map.move_right, "Right")
-        market_map.screen.onkeypress(lambda: market_map.move_up, "Up")
-        market_map.screen.onkeypress(lambda: market_map.move_down, "Down")
+        market_map.screen.onkeypress(lambda: market_map.move_left(), "Left")
+        market_map.screen.onkeypress(lambda: market_map.move_right(), "Right")
+        market_map.screen.onkeypress(lambda: market_map.move_up(), "Up")
+        market_map.screen.onkeypress(lambda: market_map.move_down(), "Down")
 
     def move_left_maps(self):
         if self.player.xcor() < -2100:
