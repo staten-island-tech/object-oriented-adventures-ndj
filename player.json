@@ -1,1 +1,1 @@
-{"name": "1", "age": 1, "starting_location": "europe", "current_location": "europe", "type": "assassin", "status": "alive", "health": 70, "attack": 25}
+{"name": "1", "age": 1, "starting_location": "asia", "current_location": "asia", "type": "nomad", "status": "alive", "health": 80, "attack": 25}

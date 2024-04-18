@@ -1,5 +1,6 @@
 import turtle
 import screen
+import market
 
 class Map():
     def __init__(self, map, player):
@@ -25,12 +26,16 @@ class Map():
         self.screen.onkeypress(lambda: None, "Right")
         self.screen.onkeypress(lambda: None, "Down")
     
+    def market(self):
+        market_map = market.Market(self.player)
+        market_map.screen.onkeypress(lambda: market_map.move_left, "Left")
+        market_map.screen.onkeypress(lambda: market_map.move_right, "Right")
+        market_map.screen.onkeypress(lambda: market_map.move_up, "Up")
+        market_map.screen.onkeypress(lambda: market_map.move_down, "Down")
+
     def move_left_maps(self):
         if self.player.xcor() < -2100:
-            market = screen.game_screen("market.gif", "market")
-            market.create(100, 100)
-            self.deactivate()
-            return
+            self.market()
         elif self.player.xcor() < -400 and self.player.ycor() > 200:
             return
         elif 2180 < self.player.xcor() < 2250 and self.player.ycor() > 200:

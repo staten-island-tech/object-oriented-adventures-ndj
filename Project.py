@@ -106,7 +106,7 @@ starting_map.screen.onkeypress(lambda: starting_map.move_down_maps(), key="Down"
 
 turtle.update()
 
-
+ 
 
 
 
