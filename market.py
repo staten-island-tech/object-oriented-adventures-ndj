@@ -1,11 +1,12 @@
 import screen
 import turtle
+import maps
 
 class Market():
 
-    def __init__(self, player):
+    def __init__(self, player, location):
         self.map = "market.gif"
-        self.location = ''
+        self.location = location
         a = screen.game_screen(self.map, "map")
         self.screen = a.create(6000, 3000)
         self.screen.tracer(0)
@@ -21,13 +22,20 @@ class Market():
         self.canvas.config(xscrollincrement=str(50))
         self.canvas.config(yscrollincrement=str(50))
     
+    def maps(self):
+        the_map = maps.Map(f"{self.location}_map.gif", self.player, self.location)
+        the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+        the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+        the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+        the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+
     def move_left(self):
         self.canvas.xview_scroll(-1, "units")
         self.player.setx(self.player.xcor() - 50)
 
     def move_right(self):
-        if self.player.xcor() > 3000:
-            return
+        if self.player.xcor() > 2500:
+            self.maps()
         self.canvas.xview_scroll(1, "units")
         self.player.setx(self.player.xcor() + 50)
         

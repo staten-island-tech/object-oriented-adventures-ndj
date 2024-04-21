@@ -3,9 +3,9 @@ import screen
 import market
 
 class Map():
-    def __init__(self, map, player):
+    def __init__(self, map, player, location):
         self.map = map
-        self.location = ''
+        self.location = location
         a = screen.game_screen(self.map, "map")
         self.screen = a.create(12000, 3000)
         self.screen.tracer(0)
@@ -27,7 +27,7 @@ class Map():
         self.screen.onkeypress(lambda: None, "Down")
     
     def market(self):
-        market_map = market.Market(self.player)
+        market_map = market.Market(self.player, self.location)
         market_map.screen.onkeypress(lambda: market_map.move_left(), "Left")
         market_map.screen.onkeypress(lambda: market_map.move_right(), "Right")
         market_map.screen.onkeypress(lambda: market_map.move_up(), "Up")
