@@ -4,9 +4,10 @@ import maps
 
 class Market():
 
-    def __init__(self, player, location):
+    def __init__(self, player, location, continent):
         self.map = "market.gif"
         self.location = location
+        self.continent = continent
         a = screen.game_screen(self.map, "map")
         self.screen = a.create(6000, 3000)
         self.screen.tracer(0)
@@ -23,7 +24,7 @@ class Market():
         self.canvas.config(yscrollincrement=str(50))
     
     def maps(self):
-        the_map = maps.Map(f"{self.location}_map.gif", self.player, self.location)
+        the_map = maps.Map(f"{self.location}_map.gif", self.player, self.location, self.continent)
         the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
         the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
         the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")

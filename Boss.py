@@ -20,10 +20,22 @@ class Enemies():
         return Enemies
 
 
+
+
 f = open("enemies.json",)
 enemies = json.load(f)
     ##Call classes in here
 
+class Sort():
+    
+    def __init__(self, rank, continent):
+        self.rank = rank
+        self.continent = continent
+    
+    def rank_sort(self):
+        for enemy in enemies:
+            if enemy['rank'] == self.rank and enemy['continent'] == self.continent:
+                return enemy
 
 # Name = input("Enter an Enemies Name: ")
 # health = int(input("Enter their health: "))
@@ -31,11 +43,13 @@ enemies = json.load(f)
 # continent = input("Enter their continent: ")
 # x = Enemies(Name, health, attack, continent)
 # enemies.append(x.__dict__)
-for enemy in enemies:
-    if enemy['continent'] == 'Europe':
-        print(enemy['Name'] + str(enemy['attack']))
-        print(enemy['Name'] + str(enemy['health']))
-
+# for enemy in enemies:
+#     if enemy['health'] != enemy['attack']:
+#         print(enemy)
+#         a = int(input("Enter new health: "))
+#         enemy['health'] = a
+#         print(enemy)
+        
 
 #No code needed below this line
 # Creates a new JSON file with the updated data

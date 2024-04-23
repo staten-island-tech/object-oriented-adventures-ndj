@@ -93,7 +93,7 @@ while time.time() < t_end:
 
 continent.hideturtle()
 turtle.clear()
-starting_map = maps.Map(f"{starting_location}_map.gif", player, starting_location)
+starting_map = maps.Map(f"{starting_location}_map.gif", player, starting_location, str.strip(location1))
 
 
 starting_map.screen.onkeypress(lambda: starting_map.move_right_maps(), key="Right")
