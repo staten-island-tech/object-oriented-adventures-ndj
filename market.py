@@ -1,6 +1,11 @@
 import screen
 import turtle
 import maps
+import json
+import time
+
+f = open("player.json",)
+user = json.load(f)
 
 class Market():
 
@@ -22,6 +27,10 @@ class Market():
         self.canvas = self.screen.getcanvas()
         self.canvas.config(xscrollincrement=str(50))
         self.canvas.config(yscrollincrement=str(50))
+        if user['money'] == 0 and user['type'] != 'royal':
+            turtle.write(arg="You are too broke to use the market", align="center", font=('Times New Roman', 70, 'bold'))
+            time.sleep(2)
+            self.maps()
     
     def maps(self):
         the_map = maps.Map(f"{self.location}_map.gif", self.player, self.location, self.continent)
@@ -31,19 +40,31 @@ class Market():
         the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
 
     def move_left(self):
-        self.canvas.xview_scroll(-1, "units")
-        self.player.setx(self.player.xcor() - 50)
+        if user['money'] == 0 and user['type'] != 'royal':
+            return
+        else:
+            self.canvas.xview_scroll(-1, "units")
+            self.player.setx(self.player.xcor() - 50)
 
     def move_right(self):
-        if self.player.xcor() > 2500:
+        if user['money'] == 0 and user['type'] != 'royal':
+            return
+        elif self.player.xcor() > 2500:
             self.maps()
-        self.canvas.xview_scroll(1, "units")
-        self.player.setx(self.player.xcor() + 50)
+        else:
+            self.canvas.xview_scroll(1, "units")
+            self.player.setx(self.player.xcor() + 50)
         
     def move_up(self):
-        self.canvas.yview_scroll(-1, "units")
-        self.player.sety(self.player.ycor() + 50)
+        if user['money'] == 0 and user['type'] != 'royal':
+            return
+        else:
+            self.canvas.yview_scroll(-1, "units")
+            self.player.sety(self.player.ycor() + 50)
 
     def move_down(self):
-        self.canvas.yview_scroll(1, "units")
-        self.player.sety(self.player.ycor() - 50)
+        if user['money'] == 0 and user['type'] != 'royal':
+            return
+        else:
+            self.canvas.yview_scroll(1, "units")
+            self.player.sety(self.player.ycor() - 50)

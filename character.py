@@ -28,7 +28,8 @@ class Create_Character():
             'starting_location': self.location,
             'current_location': self.location,
             'type': self.player_type,
-            'status': 'alive'
+            'status': 'alive',
+            'money': 0
         }
         health = 90
         attack = 25
