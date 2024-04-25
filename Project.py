@@ -7,7 +7,6 @@ import time
 import maps
 
 player_inputs = inputs.player_inputs()
-
 name = player_inputs.player_name()
 age = player_inputs.player_age()
 colony = player_inputs.starting_location()

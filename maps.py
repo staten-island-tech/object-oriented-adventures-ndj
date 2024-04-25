@@ -9,7 +9,6 @@ user = json.load(f)
 
 class Map():
     def __init__(self, map, player, location, continent):
-        turtle.clear()
         self.map = map
         self.continent = continent
         self.location = location
@@ -21,6 +20,7 @@ class Map():
         self.player.penup()
         self.player.speed(0)
         self.player.goto(-360, 90)
+        turtle.clear()
         turtle.update()
         turtle.tracer(1)
         self.canvas = self.screen.getcanvas()
@@ -35,46 +35,58 @@ class Map():
     
     def market(self):
         market_map = market.Market(self.player, self.location, self.continent)
-        market_map.screen.onkeypress(lambda: market_map.move_left(), "Left")
-        market_map.screen.onkeypress(lambda: market_map.move_right(), "Right")
-        market_map.screen.onkeypress(lambda: market_map.move_up(), "Up")
-        market_map.screen.onkeypress(lambda: market_map.move_down(), "Down")
+        # market_map.screen.onkeypress(lambda: market_map.move_left(), "Left")
+        # market_map.screen.onkeypress(lambda: market_map.move_right(), "Right")
+        # market_map.screen.onkeypress(lambda: market_map.move_up(), "Up")
+        # market_map.screen.onkeypress(lambda: market_map.move_down(), "Down")
 
     def rank_1(self):
         aboss = Boss.Sort(1, self.continent)
         boss = aboss.rank_sort()
-        aboss_screen = screen.game_screen(boss['image'], "boss")
-        boss_screen = aboss_screen.create(1000, 1000)
-
+        aboss_screen = screen.game_screen("new_challenger.gif", "boss")
+        boss_screen = aboss_screen.create(1780, 1000)
+        enemy = turtle.Turtle(f"europe.gif")
+        enemy.penup()
+        
     def rank_2(self):
         aboss = Boss.Sort(2, self.continent)
         boss = aboss.rank_sort()
-        aboss_screen = screen.game_screen(boss['image'], "boss")
-        boss_screen = aboss_screen.create(1000, 1000)
+        enemy = turtle.Turtle(boss['image'])
+        enemy.penup()
+        aboss_screen = screen.game_screen("new_challenger.gif", "boss")
+        boss_screen = aboss_screen.create(1780, 1000)
 
     def rank_3(self):
         aboss = Boss.Sort(3, self.continent)
         boss = aboss.rank_sort()
-        aboss_screen = screen.game_screen(boss['image'], "boss")
-        boss_screen = aboss_screen.create(1000, 1000)
+        enemy = turtle.Turtle(boss['image'])
+        enemy.penup()
+        aboss_screen = screen.game_screen("new_challenger.gif", "boss")
+        boss_screen = aboss_screen.create(1780, 1000)
 
     def rank_4(self):
         aboss = Boss.Sort(4, self.continent)
         boss = aboss.rank_sort()
-        aboss_screen = screen.game_screen(boss['image'], "boss")
-        boss_screen = aboss_screen.create(1000, 1000)
+        enemy = turtle.Turtle(boss['image'])
+        enemy.penup()
+        aboss_screen = screen.game_screen("new_challenger.gif", "boss")
+        boss_screen = aboss_screen.create(1780, 1000)
 
     def rank_5(self):
         aboss = Boss.Sort(5, self.continent)
         boss = aboss.rank_sort()
-        aboss_screen = screen.game_screen(boss['image'], "boss")
-        boss_screen = aboss_screen.create(1000, 1000)
+        enemy = turtle.Turtle(boss['image'])
+        enemy.penup()
+        aboss_screen = screen.game_screen("new_challenger.gif", "boss")
+        boss_screen = aboss_screen.create(1780, 1000)
 
     def rank_6(self):
         aboss = Boss.Sort(6, self.continent)
         boss = aboss.rank_sort()
-        aboss_screen = screen.game_screen(boss['image'], "boss")
-        boss_screen = aboss_screen.create(1000, 1000)
+        enemy = turtle.Turtle(boss['image'])
+        enemy.penup()
+        aboss_screen = screen.game_screen("new_challenger.gif", "boss")
+        boss_screen = aboss_screen.create(1780, 1000)
     
 
     def move_left_maps(self):

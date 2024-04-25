@@ -27,9 +27,13 @@ class Market():
         self.canvas = self.screen.getcanvas()
         self.canvas.config(xscrollincrement=str(50))
         self.canvas.config(yscrollincrement=str(50))
+        self.screen.onkeypress(lambda: self.move_right(), key="Right")
+        self.screen.onkeypress(lambda: self.move_left(), key="Left")
+        self.screen.onkeypress(lambda: self.move_up(), key="Up")
+        self.screen.onkeypress(lambda: self.move_down(), key="Down")
         if user['money'] == 0 and user['type'] != 'royal':
             turtle.write(arg="You are too broke to use the market", align="center", font=('Times New Roman', 70, 'bold'))
-            time.sleep(2)
+            time.sleep(1.5)
             self.maps()
     
     def maps(self):
@@ -39,6 +43,10 @@ class Market():
         the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
         the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
 
+    def armor_seller(self):
+        if user['type'] == 'royal':
+            pass
+    
     def move_left(self):
         if user['money'] == 0 and user['type'] != 'royal':
             return
