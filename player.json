@@ -1,1 +1,1 @@
-{"name": "", "age": 1, "starting_location": "oceania", "current_location": "oceania", "type": "peasant", "status": "alive", "money": 10, "health": 65, "attack": 20}
+{"name": "", "age": 1, "starting_location": "europe", "current_location": "europe", "type": "nomad", "status": "alive", "money": 10, "health": 80, "attack": 25}

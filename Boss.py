@@ -43,12 +43,18 @@ class Sort():
 # continent = input("Enter their continent: ")
 # x = Enemies(Name, health, attack, continent)
 # enemies.append(x.__dict__)
-# for enemy in enemies:
-#     if enemy['health'] != enemy['attack']:
-#         print(enemy)
-#         a = int(input("Enter new health: "))
-#         enemy['health'] = a
-#         print(enemy)
+a = 0
+b = 0
+for enemy in enemies:
+    try:
+        print(enemy['image'])
+        a += 1
+    except KeyError:
+        print(enemy['Name'])
+        b = a + 1
+print(a)
+print(b)
+
         
 
 #No code needed below this line
