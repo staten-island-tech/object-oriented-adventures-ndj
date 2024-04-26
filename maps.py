@@ -3,6 +3,7 @@ import screen
 import market
 import Boss
 import json
+import time
 
 f = open("player.json",)
 user = json.load(f)
@@ -41,52 +42,89 @@ class Map():
         # market_map.screen.onkeypress(lambda: market_map.move_down(), "Down")
 
     def rank_1(self):
+        self.deactivate()
         aboss = Boss.Sort(1, self.continent)
         boss = aboss.rank_sort()
         aboss_screen = screen.game_screen("new_challenger.gif", "boss")
         boss_screen = aboss_screen.create(1780, 1000)
-        enemy = turtle.Turtle(f"europe.gif")
+        boss_screen.register_shape(boss['image'])
+        enemy = turtle.Turtle()
+        enemy.shape(boss['image'])
         enemy.penup()
+        enemy.goto(330, 0)
+        time.sleep(1.5)
+        boss_screen.update()
         
     def rank_2(self):
+        self.deactivate()
         aboss = Boss.Sort(2, self.continent)
         boss = aboss.rank_sort()
-        enemy = turtle.Turtle(boss['image'])
-        enemy.penup()
         aboss_screen = screen.game_screen("new_challenger.gif", "boss")
         boss_screen = aboss_screen.create(1780, 1000)
+        boss_screen.register_shape(boss['image'])
+        enemy = turtle.Turtle()
+        enemy.shape(boss['image'])
+        enemy.penup()
+        enemy.goto(330, 0)
+        time.sleep(1.5)
+        boss_screen.update()
+        
 
     def rank_3(self):
+        self.deactivate()
         aboss = Boss.Sort(3, self.continent)
         boss = aboss.rank_sort()
-        enemy = turtle.Turtle(boss['image'])
-        enemy.penup()
         aboss_screen = screen.game_screen("new_challenger.gif", "boss")
         boss_screen = aboss_screen.create(1780, 1000)
+        boss_screen.register_shape(boss['image'])
+        enemy = turtle.Turtle()
+        enemy.shape(boss['image'])
+        enemy.penup()
+        enemy.goto(330, 0)
+        time.sleep(1.5)
+        boss_screen.update()
 
     def rank_4(self):
+        self.deactivate()
         aboss = Boss.Sort(4, self.continent)
         boss = aboss.rank_sort()
-        enemy = turtle.Turtle(boss['image'])
-        enemy.penup()
         aboss_screen = screen.game_screen("new_challenger.gif", "boss")
         boss_screen = aboss_screen.create(1780, 1000)
+        boss_screen.register_shape(boss['image'])
+        enemy = turtle.Turtle()
+        enemy.shape(boss['image'])
+        enemy.penup()
+        enemy.goto(330, 0)
+        time.sleep(1.5)
+        boss_screen.update()
 
     def rank_5(self):
+        self.deactivate()
         aboss = Boss.Sort(5, self.continent)
         boss = aboss.rank_sort()
-        enemy = turtle.Turtle(boss['image'])
-        enemy.penup()
         aboss_screen = screen.game_screen("new_challenger.gif", "boss")
         boss_screen = aboss_screen.create(1780, 1000)
+        boss_screen.register_shape(boss['image'])
+        enemy = turtle.Turtle()
+        enemy.shape(boss['image'])
+        enemy.penup()
+        enemy.goto(330, 0)
+        time.sleep(1.5)
+        boss_screen.update()
 
     def rank_6(self):
+        self.deactivate()
         aboss = Boss.Sort(6, self.continent)
         boss = aboss.rank_sort()
-        enemy = turtle.Turtle(boss['image'])
-        enemy.penup()
         aboss_screen = screen.game_screen("new_challenger.gif", "boss")
         boss_screen = aboss_screen.create(1780, 1000)
+        boss_screen.register_shape(boss['image'])
+        enemy = turtle.Turtle()
+        enemy.shape(boss['image'])
+        enemy.penup()
+        enemy.goto(330, 0)
+        time.sleep(1.5)
+        boss_screen.update()
     
 
     def move_left_maps(self):
