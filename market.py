@@ -9,7 +9,7 @@ user = json.load(f)
 
 class Market():
 
-    def __init__(self, player, location, continent):
+    def __init__(self, player, location, continent, playerdict):
         self.map = "market.gif"
         self.location = location
         self.continent = continent
@@ -31,13 +31,14 @@ class Market():
         self.screen.onkeypress(lambda: self.move_left(), key="Left")
         self.screen.onkeypress(lambda: self.move_up(), key="Up")
         self.screen.onkeypress(lambda: self.move_down(), key="Down")
+        self.playerdict = playerdict
         if user['money'] == 0 and user['type'] != 'royal':
             turtle.write(arg="You are too broke to use the market", align="center", font=('Times New Roman', 70, 'bold'))
             time.sleep(1.5)
             self.maps()
     
     def maps(self):
-        the_map = maps.Map(f"{self.location}_map.gif", self.player, self.location, self.continent)
+        the_map = maps.Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
         the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
         the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
         the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")

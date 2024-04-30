@@ -22,7 +22,7 @@ turtle.write(arg=f'{screen_text}', align='center', font=('Times New Roman', 50, 
 time.sleep(1)
 turtle.clear()
 
-turtle.penup()
+turtle.penup() 
 turtle.tracer(0)
 turtle.goto(0, 300)
 turtle.write(arg="Your clan is...", align='center', font=('Times New Roman', 50, 'normal'))
@@ -77,22 +77,22 @@ for i in location:
 turtle.write(arg=f"{location1}", align='center', font=('Times New Roman', 50, 'bold'))
 turtle.goto(0,0)
 continent = turtle.Turtle(f"{starting_location}.gif")
-player = turtle.Turtle(f"{player['type']}.gif")
-player.penup()
-player.goto(600, 0)
-player.speed(2)
+playert = turtle.Turtle(f"{player['type']}.gif")
+playert.penup()
+playert.goto(600, 0)
+playert.speed(2)
 turtle.tracer(1)
-player.goto(0, 0)
+playert.goto(0, 0)
 t_end = time.time() + 1.5
 while time.time() < t_end:
     time.sleep(0.3)
-    player.hideturtle()
+    playert.hideturtle()
     time.sleep(0.3)
-    player.showturtle()
+    playert.showturtle()
 
 continent.hideturtle()
 turtle.clear()
-starting_map = maps.Map(f"{starting_location}_map.gif", player, starting_location, str.strip(location1))
+starting_map = maps.Map(f"{starting_location}_map.gif", playert, starting_location, str.strip(location1), player)
 
 
 starting_map.screen.onkeypress(lambda: starting_map.move_right_maps(), key="Right")

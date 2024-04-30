@@ -4,12 +4,13 @@ import market
 import Boss
 import json
 import time
+import fight
 
 f = open("player.json",)
 user = json.load(f)
 
 class Map():
-    def __init__(self, map, player, location, continent):
+    def __init__(self, map, player, location, continent, playerdict):
         self.map = map
         self.continent = continent
         self.location = location
@@ -27,6 +28,8 @@ class Map():
         self.canvas = self.screen.getcanvas()
         self.canvas.config(xscrollincrement=str(50))
         self.canvas.config(yscrollincrement=str(50))
+        self.playerdict = playerdict
+    
     
     def deactivate(self):
         self.screen.onkeypress(lambda: None, "Up")
@@ -35,7 +38,7 @@ class Map():
         self.screen.onkeypress(lambda: None, "Down")
     
     def market(self):
-        market_map = market.Market(self.player, self.location, self.continent)
+        market_map = market.Market(self.player, self.location, self.continent, self.playerdict)
         # market_map.screen.onkeypress(lambda: market_map.move_left(), "Left")
         # market_map.screen.onkeypress(lambda: market_map.move_right(), "Right")
         # market_map.screen.onkeypress(lambda: market_map.move_up(), "Up")
@@ -53,8 +56,10 @@ class Map():
         enemy.shape(boss['image'])
         enemy.penup()
         enemy.goto(330, 0)
-        time.sleep(1.5)
+        time.sleep(1)
         boss_screen.update()
+        time.sleep(1)
+        
         
     def rank_2(self):
         self.deactivate()
@@ -68,8 +73,9 @@ class Map():
         enemy.shape(boss['image'])
         enemy.penup()
         enemy.goto(330, 0)
-        time.sleep(1.5)
+        time.sleep(1)
         boss_screen.update()
+        
         
 
     def rank_3(self):
@@ -84,7 +90,7 @@ class Map():
         enemy.shape(boss['image'])
         enemy.penup()
         enemy.goto(330, 0)
-        time.sleep(1.5)
+        time.sleep(1)
         boss_screen.update()
 
     def rank_4(self):
@@ -99,7 +105,7 @@ class Map():
         enemy.shape(boss['image'])
         enemy.penup()
         enemy.goto(330, 0)
-        time.sleep(1.5)
+        time.sleep(1)
         boss_screen.update()
 
     def rank_5(self):
@@ -114,7 +120,7 @@ class Map():
         enemy.shape(boss['image'])
         enemy.penup()
         enemy.goto(330, 0)
-        time.sleep(1.5)
+        time.sleep(1)
         boss_screen.update()
 
     def rank_6(self):
@@ -131,6 +137,19 @@ class Map():
         enemy.goto(330, 0)
         time.sleep(1)
         boss_screen.update()
+        time.sleep(1)
+        enemy.hideturtle()
+        fight_commands = fight.Battle(boss, self.playerdict)
+        result = fight_commands.rank6battle()
+        if result:
+            turtle.clear()
+            the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+            the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+            the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+            the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+            the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+        else:
+            return 
     
 
     def move_left_maps(self):

@@ -46,15 +46,8 @@ class Sort():
 a = 0
 b = 0
 for enemy in enemies:
-    try:
+    if enemy['Name'] == 'Narendra Modi':
         print(enemy['image'])
-        a += 1
-    except KeyError:
-        print(enemy['Name'])
-        b = a + 1
-print(a)
-print(b)
-
         
 
 #No code needed below this line
