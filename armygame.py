@@ -9,23 +9,22 @@
 #include <stdlib.h>
 #include <string.h>
 
-char* readline();
-char* ltrim(char*);
-char* rtrim(char*);
-char** split_string(char*);
+import readline
 
-int parse_int(char*);
+ltrim = ()
+rtrim = ()
+char = chr
 
-/*
- * Complete the 'gameWithCells' function below.
- *
- * The function is expected to return an INTEGER.
- * The function accepts following parameters:
- *  1. INTEGER n
- *  2. INTEGER m
- */
+char* readline()
+char* ltrim(char)
+char* rtrim (char
 
-int gameWithCells int(n, m); {
+char* split_string(char)
+int parse_qs(char*) {
+}
+
+int gameWithCells ((int n, int m); {
+
 }
 
 int main()
