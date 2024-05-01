@@ -1,5 +1,4 @@
 import random
-<<<<<<< HEAD
 
 class Hangman():
 
@@ -79,7 +78,7 @@ for i in range(-1, num_turns):
         break 
     print('you have '+str(num_turns - i)+' turns left.')
     print()
-=======
+
 import screen
 import turtle
 import time
@@ -199,5 +198,3 @@ class Hangman():
         turtle.mainloop()
         time.sleep(1)
         return False
-
->>>>>>> main
