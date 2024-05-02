@@ -75,8 +75,8 @@ class Hangman():
                         turtle.clear()
                         turtle.goto(0, 0)
                         turtle.write(arg=f"I didn't think that you would be able to figure it out...", align='center', font=('Times New Roman', 60, 'normal'))
-                        turtle.mainloop()
                         time.sleep(1)
+                        boss.hideturtle()
                         return True
                     else:
                         turtle.clear()
@@ -109,13 +109,13 @@ class Hangman():
                     turtle.clear()
                     turtle.goto(0, 0)
                     turtle.write(arg=f"I didn't think that you would be able to figure it out...", align='center', font=('Times New Roman', 60, 'normal'))
-                    turtle.mainloop()
                     time.sleep(1)
+                    boss.hideturtle()
                     return True
         turtle.clear()
         turtle.goto(0, 0)
         turtle.write(arg=f"You failed. The word was {self.word}.", align='center', font=('Times New Roman', 60, 'normal'))
-        turtle.mainloop()
         time.sleep(1)
+        boss.hideturtle()
         return False
 

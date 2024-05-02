@@ -11,6 +11,8 @@ user = json.load(f)
 
 class Map():
     def __init__(self, map, player, location, continent, playerdict):
+        turtle.goto(0, 0)
+        turtle.penup()
         self.map = map
         self.continent = continent
         self.location = location

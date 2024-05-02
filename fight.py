@@ -30,20 +30,11 @@ class Battle():
         boss.speed(0)
         boss.goto(0, 0)
         victory_screen.update()
-        player = turtle.Turtle()
-        player.shape(f"{self.player['type']}.gif")
-        player.hideturtle()
-        player.penup()
-        player.speed(0)
-        player.goto(-500, 0)
-        player.speed(3)
-        player.showturtle()
-        player.goto(0, 0)
         boss.hideturtle()
         turtle.goto(0, 400)
         turtle.write(arg="Victory", align="center", font=("Times New Roman", 40, 'normal'))
         time.sleep(1.5)
-        player.hideturtle()
+        
         return True
     
     def defeat(self):
@@ -51,6 +42,7 @@ class Battle():
         return False
 
     def rank6battle(self):
+        turtle.clear()
         num = random.randint(0, 1)
         random_game = self.games[num]
         result = random_game.game()
