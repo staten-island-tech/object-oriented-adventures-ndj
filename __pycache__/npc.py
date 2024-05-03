@@ -18,3 +18,6 @@ class NPC():
     def dialogue_spoken():
         npc_spoken = input("Have you heard of the scary bosses located around the world? (Y/N): ")
         npc_spoken2 = input("Theres a rumour out there that the scariest boss of all is located in Russia..")
+        npc_spoken3 = input("From what i've heard, Africa is the hardest place to be in.... Try and get out of the Sahara Desert alive!!!!")
+        npc_spoken4 = input("I sure hope my husband comes back Russia..")
+        npc_spoken5 = input("Don't talk to me, you weakling..")
