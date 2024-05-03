@@ -37,22 +37,8 @@ class num_guess():
             elif count == 10:
                 turtle.clear()
                 turtle.goto(0, 0)
-                turtle.write(arg=f"You failed to guess to guess how {self.item} I have, now you die by my NUKES!!!", align='center', font=('Times New Roman', 40, 'normal'))
+                turtle.write(arg=f"You failed to guess to guess how {self.item} I have, now you die!!!", align='center', font=('Times New Roman', 40, 'normal'))
                 time.sleep(1)
-                self.screen.register_shape("nuke.gif")
-                nuke = turtle.Turtle()
-                nuke.speed(0)
-                nuke.penup()
-                nuke.goto(0, 700)
-                nuke.shape("nuke.gif")
-                nuke.speed(3)
-                turtle.update()
-                turtle.tracer(1)
-                nuke.goto(0, 0)
-                turtle.clear()
-                nuke.hideturtle()
-                nuclear = screen.game_screen("nukediekillyou.gif", "Nuked")
-                nuclear.create(574, 574)    
                 return False
             elif guess < number:
                 turtle.clear()
