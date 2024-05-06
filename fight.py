@@ -9,6 +9,7 @@ import turtle
 class Battle():
 
     def __init__(self, boss, player):
+        turtle.tracer(0)
         self.boss = boss
         self.player = player
         self.hang = Hang.Hangman(boss['image'], boss['Name'])
@@ -42,6 +43,7 @@ class Battle():
         return False
 
     def rank6battle(self):
+        turtle.goto(0, 0)
         turtle.clear()
         num = random.randint(0, 1)
         random_game = self.games[num]
@@ -53,6 +55,11 @@ class Battle():
                 return self.victory()
             else:
                 num -= 1
+                turtle.clear()
+                turtle.goto(0, 400)
+                turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                turtle.update()
+                time.sleep(1)
                 self.rank6battle()
         else:
             self.player['health'] -= self.boss['attack']
@@ -61,6 +68,11 @@ class Battle():
                 return self.defeat()
             else:
                 num -= 1
+                turtle.clear()
+                turtle.goto(0, 400)
+                turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                turtle.update()
+                time.sleep(1)
                 self.rank6battle()
 
     
