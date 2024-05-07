@@ -25,7 +25,8 @@ class Enemies():
 f = open("enemies.json",)
 enemies = json.load(f)
     ##Call classes in here
-
+for enemy in enemies:
+    enemy['status'] = 'alive'
 class Sort():
     
     def __init__(self, rank, continent):

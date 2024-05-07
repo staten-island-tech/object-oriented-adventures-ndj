@@ -74,6 +74,20 @@ class Battle():
                 turtle.update()
                 time.sleep(1)
                 self.rank6battle()
+    
+    def rank5battle(self):
+        pass
 
+    def rank4battle(self):
+        pass
+    
+    def rank3battle(self):
+        pass
+
+    def rank2battle(self):
+        pass
+
+    def rank1battle(self):
+        pass
     
     
