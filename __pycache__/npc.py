@@ -47,3 +47,8 @@ class NPC():
                 print("Good luck youngling, and I hope to see you when you return..")
             if dialogue_spoken_to_player(npc_spoken) == 'No, I havent heard of them':
                 print("Oh.... Just know that there will be many troubles amongst your adventure..")
+        while dialogue_spoken_to_player(npc_spoken2) == 'Y':
+            if dialogue_spoken_to_player(npc_spoken2) == 'Who is he?':
+                print("His name is Vladimir Putin, and he is thought of to be the strongest man alive... but from what I think... he's nothing but a bald piece of crap!")
+            if dialogue_spoken_to_player(npc_spoken2) == 'How do you know of him?':
+                print("Everybody knows of him... As badly I want to talk about him, he defeats everyone in the world way too easily..")
