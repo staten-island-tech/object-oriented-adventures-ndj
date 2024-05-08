@@ -57,10 +57,10 @@ class Battle():
                 num -= 1
                 turtle.clear()
                 turtle.goto(0, 400)
-                turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                turtle.write(arg=f"You have attacked {self.boss['Name']}. His health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
                 turtle.update()
                 time.sleep(2)
-                self.rank6battle()
+                return self.rank6battle()
         else:
             self.player['health'] -= self.boss['attack']
             if self.player['health'] <= 0:
@@ -73,7 +73,7 @@ class Battle():
                 turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
                 turtle.update()
                 time.sleep(1)
-                self.rank6battle()
+                return self.rank6battle()
     
     def rank5battle(self):
         pass
