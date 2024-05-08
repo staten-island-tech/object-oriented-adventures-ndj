@@ -1,3 +1,5 @@
+import random
+
 class NPC():
     def __init__(self, dialogue, tips):
         self.dialogue = dialogue
