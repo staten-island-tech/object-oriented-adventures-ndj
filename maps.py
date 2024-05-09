@@ -147,8 +147,9 @@ class Map():
             the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
             the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
             turtle.write(arg=f"You can't fight {boss['Name']} twice", align='center', font=('Times New Roman', 50, 'normal'))
-            turtle.clear()
             time.sleep(1)
+            turtle.clear()
+        
         else:
             aboss_screen = screen.game_screen("new_challenger.gif", "boss")
             boss_screen = aboss_screen.create(1780, 1000)
