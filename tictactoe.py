@@ -39,12 +39,44 @@ def tic_tac_toe():
                         change_squares[a] = i
                         
                     a += 1
+                random_square = random.randint(0, 8)
 
-        if g == 'o':
+                if random_square in taken_squares:
+                    random_square = random.randint(0, 8)
+                    while random_square in taken_squares:
+                        random_square = random.randint(0, 8)
+                
+                change_squares[random_square] = 'o'
+
+        elif g == 'o':
             print("You go after me!")
             random_square = random.randint(0, 8)
-            if random_square not in taken_squares:
-                change_squares[random_square] = 'x'
+            if random_square in taken_squares:
+                random_square = random.randint(0, 8)
+                while random_square in taken_squares:
+                    random_square = random.randint(0, 8)
+            
+            change_squares[random_square] = 'x'
+            print(f"""
+            {change_squares[0]} / {change_squares[1]} / {change_squares[2]}
+            {change_squares[3]} / {change_squares[4]} / {change_squares[5]}
+            {change_squares[6]} / {change_squares[7]} / {change_squares[8]}
+            """)
+            square = input("Pick a square: ")
+            if square not in Square_moves:
+                print("You are acoustic")
+            else:
+                print("Good move")
+                a = 0
+                for i in change_squares:
+                    if square == str(i):
+                        i = g
+                        taken_squares.append(a)
+                        change_squares[a] = i
+                        
+                    a += 1
+                
+
             
     
     
