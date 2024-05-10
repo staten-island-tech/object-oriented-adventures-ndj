@@ -18,8 +18,8 @@ if dialogue_spoken_to_player == 'N':
 
 # npc_dialogue = input("Do you want to know some tips? (Y/N): ")
 # if npc_dialogue == 'Y':
-#     list3 = ["Always make sure to stock up on items before a boss fight","It is a finite, beautiful world out there... Make sure to take your time and explore the right places", "If you are playing a mini-game, always make sure that when you lose, one of your hearts gets removed", "There are merchants across every location, make sure to talk to them for items ;)", "RNG plays a big part in this game, so dont rage if you get bad luck :)","There mayyy be a secret boss at the end..."]
-#     print(random.choice(list3))
+#      list3 = ["Always make sure to stock up on items before a boss fight","It is a finite, beautiful world out there... Make sure to take your time and explore the right places", "If you are playing a mini-game, always make sure that when you lose, one of your hearts gets removed", "There are merchants across every location, make sure to talk to them for items ;)", "RNG plays a big part in this game, so dont rage if you get bad luck :)","There mayyy be a secret boss at the end..."]
+#      print(random.choice(list3))
 # if npc_dialogue == 'N':
-#     list4 = ["Okay, have a good day", "Piss off!", "I hope to talk to you again...","Good luck on your adventures!!"]
-#     print(random.choice(list4))
+#      list4 = ["Okay, have a good day", "Piss off!", "I hope to talk to you again...","Good luck on your adventures!!"]
+#      print(random.choice(list4))
