@@ -13,8 +13,8 @@ class Market():
         self.map = "market.gif"
         self.location = location
         self.continent = continent
-        a = screen.game_screen(self.map, "map")
-        self.screen = a.create(6000, 3000)
+        self.screen_commands = screen.game_screen(self.map, "map")
+        self.screen = self.screen_commands.create(6000, 3000)
         self.screen.tracer(0)
         self.screen.listen()
         self.player = player
@@ -47,6 +47,9 @@ class Market():
     def armor_seller(self):
         if user['type'] == 'royal':
             pass
+        else:
+            self.screen_commands.text_input('Hello', )
+        
     
     def move_left(self):
         if user['money'] == 0 and user['type'] != 'royal':
@@ -67,6 +70,8 @@ class Market():
     def move_up(self):
         if user['money'] == 0 and user['type'] != 'royal':
             return
+        elif self.player.ycor() > 1300:
+            self.armor_seller()
         else:
             self.canvas.yview_scroll(-1, "units")
             self.player.sety(self.player.ycor() + 50)
