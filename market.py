@@ -48,8 +48,11 @@ class Market():
         if user['type'] == 'royal':
             pass
         else:
-            self.screen_commands.text_input('Hello', )
-        
+            secret = self.screen_commands.text_input('Hello', 'Hello there traveler')
+            if 'shut' in secret.lower():
+                self.screen_commands.text_input('You f*cked up', 'Oh you think your all that huh')
+                
+
     
     def move_left(self):
         if user['money'] == 0 and user['type'] != 'royal':
