@@ -171,7 +171,7 @@ class Map():
                 the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
                 the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
                 the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
-                the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down") 
+                the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
                 turtle.write(arg=f"You have defeated {boss['Name']} and have conquered {boss['country']}", align='center', font=('Times New Roman', 50, 'normal'))
                 time.sleep(1)
                 turtle.clear()
