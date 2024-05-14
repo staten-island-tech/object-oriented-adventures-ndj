@@ -3,9 +3,8 @@ import turtle
 import maps
 import json
 import time
+import loss
 
-f = open("player.json",)
-user = json.load(f)
 
 class Market():
 
@@ -32,7 +31,7 @@ class Market():
         self.screen.onkeypress(lambda: self.move_up(), key="Up")
         self.screen.onkeypress(lambda: self.move_down(), key="Down")
         self.playerdict = playerdict
-        if user['money'] == 0 and user['type'] != 'royal':
+        if self.playerdict['money'] == 0 and self.playerdict['type'] != 'royal':
             turtle.write(arg="You are too broke to use the market", align="center", font=('Times New Roman', 70, 'bold'))
             time.sleep(1.5)
             self.maps()
@@ -45,24 +44,32 @@ class Market():
         the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
 
     def armor_seller(self):
-        if user['type'] == 'royal':
+        if self.playerdict['type'] == 'royal':
             pass
         else:
             secret = self.screen_commands.text_input('Hello', 'Hello there traveler')
-            if 'shut' in secret.lower():
-                self.screen_commands.text_input('You f*cked up', 'Oh you think your all that huh')
-                
+            if 'shut' or 'fuck' in secret.lower():
+                response = self.screen_commands.text_input('You fucked up', 'Oh you think your all that huh')
+                if 'no' or 'sorry' in response.lower():
+                    self.screen_commands.text_input('Go away', 'Then fuck off')
+                    return
+                else:
+                    self.screen_commands.text_input('Its over for you', 'Then get yo ass over here')
+                    loss.Loss()
+                    return
+
+
 
     
     def move_left(self):
-        if user['money'] == 0 and user['type'] != 'royal':
+        if self.playerdict['money'] == 0 and self.playerdict['type'] != 'royal':
             return
         else:
             self.canvas.xview_scroll(-1, "units")
             self.player.setx(self.player.xcor() - 50)
 
     def move_right(self):
-        if user['money'] == 0 and user['type'] != 'royal':
+        if self.playerdict['money'] == 0 and self.playerdict['type'] != 'royal':
             return
         elif self.player.xcor() > 2500:
             self.maps()
@@ -71,7 +78,7 @@ class Market():
             self.player.setx(self.player.xcor() + 50)
         
     def move_up(self):
-        if user['money'] == 0 and user['type'] != 'royal':
+        if self.playerdict['money'] == 0 and self.playerdict['type'] != 'royal':
             return
         elif self.player.ycor() > 1300:
             self.armor_seller()
@@ -80,7 +87,7 @@ class Market():
             self.player.sety(self.player.ycor() + 50)
 
     def move_down(self):
-        if user['money'] == 0 and user['type'] != 'royal':
+        if self.playerdict['money'] == 0 and self.playerdict['type'] != 'royal':
             return
         else:
             self.canvas.yview_scroll(1, "units")
