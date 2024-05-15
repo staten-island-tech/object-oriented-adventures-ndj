@@ -48,6 +48,7 @@ class Market():
             pass
         else:
             secret = self.screen_commands.text_input('Hello', 'Hello there traveler')
+            print(secret)
             if 'shut' or 'fuck' in secret.lower():
                 response = self.screen_commands.text_input('You fucked up', 'Oh you think your all that huh')
                 if 'no' or 'sorry' in response.lower():
@@ -57,6 +58,8 @@ class Market():
                     self.screen_commands.text_input('Its over for you', 'Then get yo ass over here')
                     loss.Loss()
                     return
+            else:
+                self.screen_commands.text_input(' ', 'I sell armor which can increase your health so you survive stronger hits')
 
 
 
