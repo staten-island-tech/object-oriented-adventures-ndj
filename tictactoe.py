@@ -14,6 +14,14 @@ def tic_tac_toe():
     print("I challenge you to a game of tic-tac-toe: ")
     g = input("Pick x or o: ")
     while a:
+        if len(taken_squares) > 8:
+            print("It's a draw!")
+            print(f"""
+            {change_squares[0]} / {change_squares[1]} / {change_squares[2]}
+            {change_squares[3]} / {change_squares[4]} / {change_squares[5]}
+            {change_squares[6]} / {change_squares[7]} / {change_squares[8]}
+            """)
+            a = False
         print(f"""
             {change_squares[0]} / {change_squares[1]} / {change_squares[2]}
             {change_squares[3]} / {change_squares[4]} / {change_squares[5]}
@@ -78,19 +86,31 @@ def tic_tac_toe():
                     a += 1
 
         if len(player_squares) > 2:
-            print('ohio')
-            check = all(e in winning_combinations for e in player_squares)
-            if check == True:
-                a = False
-                print('You win!')
+            for i in winning_combinations:
+                intersection = set(player_squares).intersection(set(i))
+                check = all(e in list(intersection) for e in i)
+                if check == True:
+                    a = False
+                    print(f"""
+                    {change_squares[0]} / {change_squares[1]} / {change_squares[2]}
+                    {change_squares[3]} / {change_squares[4]} / {change_squares[5]}
+                    {change_squares[6]} / {change_squares[7]} / {change_squares[8]}
+                    """)
+                    print('You win!')
 
         if len(computer_squares) > 2:
-            print('ohio')
-            check = all(e in winning_combinations for e in computer_squares)
-            if check == True:
-                a = False
-                print('You lose!')
-                
+            for i in winning_combinations:
+                intersection = set(computer_squares).intersection(set(i))
+                check = all(e in list(intersection) for e in i)
+                if check == True:
+                    a = False
+                    print(f"""
+                    {change_squares[0]} / {change_squares[1]} / {change_squares[2]}
+                    {change_squares[3]} / {change_squares[4]} / {change_squares[5]}
+                    {change_squares[6]} / {change_squares[7]} / {change_squares[8]}
+                    """)
+                    print('You lose!')
+                    
 
             
     
