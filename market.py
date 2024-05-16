@@ -49,7 +49,7 @@ class Market():
         else:
             secret = self.screen_commands.text_input('Hello', 'Hello there traveler')
             print(secret)
-            if 'shut' or 'fuck' in secret.lower():
+            if 'shut' in secret.lower() or 'fuck' in secret.lower():
                 response = self.screen_commands.text_input('You fucked up', 'Oh you think your all that huh')
                 if 'no' or 'sorry' in response.lower():
                     self.screen_commands.text_input('Go away', 'Then fuck off')
