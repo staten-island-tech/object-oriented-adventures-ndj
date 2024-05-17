@@ -14,19 +14,11 @@ def tic_tac_toe():
     print("I challenge you to a game of tic-tac-toe: ")
     g = input("Pick x or o: ")
     while a:
-        if len(taken_squares) > 8:
-            print("It's a draw!")
-            print(f"""
-            {change_squares[0]} / {change_squares[1]} / {change_squares[2]}
-            {change_squares[3]} / {change_squares[4]} / {change_squares[5]}
-            {change_squares[6]} / {change_squares[7]} / {change_squares[8]}
-            """)
-            a = False
         print(f"""
-            {change_squares[0]} / {change_squares[1]} / {change_squares[2]}
-            {change_squares[3]} / {change_squares[4]} / {change_squares[5]}
-            {change_squares[6]} / {change_squares[7]} / {change_squares[8]}
-            """)
+                {change_squares[0]} / {change_squares[1]} / {change_squares[2]}
+                {change_squares[3]} / {change_squares[4]} / {change_squares[5]}
+                {change_squares[6]} / {change_squares[7]} / {change_squares[8]}
+                """)
         if g == 'x':
             print("You go first!")
             square = input("Pick a square: ")
@@ -45,14 +37,17 @@ def tic_tac_toe():
                     a += 1
                 random_square = random.randint(0, 8)
 
-                if random_square in taken_squares:
+                if random_square in taken_squares and len(taken_squares) <= 8:
                     random_square = random.randint(0, 8)
                     while random_square in taken_squares:
                         random_square = random.randint(0, 8)
-                
-                change_squares[random_square] = 'o'
-                taken_squares.append(random_square)
-                computer_squares.append(random_square)
+                elif len(taken_squares) > 8:
+                    pass
+                else:  
+                    change_squares[random_square] = 'o'
+                    taken_squares.append(random_square)
+                    computer_squares.append(random_square)
+            
 
         elif g == 'o':
             print("You go after me!")
@@ -110,6 +105,15 @@ def tic_tac_toe():
                     {change_squares[6]} / {change_squares[7]} / {change_squares[8]}
                     """)
                     print('You lose!')
+        
+        if len(taken_squares) > 8:
+                print("It's a draw!")
+                print(f"""
+                {change_squares[0]} / {change_squares[1]} / {change_squares[2]}
+                {change_squares[3]} / {change_squares[4]} / {change_squares[5]}
+                {change_squares[6]} / {change_squares[7]} / {change_squares[8]}
+                """)
+                a = False
                     
 
             
