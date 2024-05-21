@@ -31,7 +31,7 @@ class BD:
             print("During our battle, I will make sure you feel my wrath !!!!!")
 
     def Ashraf():
-        Ashraf_says = input("May praise be with Allah, Allahu Akbar! (As-salamu alaykum/Christianity is the true religion!!)")
+        Ashraf_says = input("May praise be with Allah, Allahu Akbar! (As-salamu alaykum/Christianity is the true religion!!): ")
         if Ashraf_says == 'As-salamu alaykum':
             print("Wa-Alaikum-Salaam")
         if Ashraf_says == 'Christianity is the true religion!!':
@@ -45,4 +45,34 @@ class BD:
             print("The gift is the upbringing of death, I already know it!")
     
     def Zelensky():
-        Zelensky_says = input("Here in Ukraine, we have been waiting for you...Now choose to ally or fight with us! (I h) ")
+        Zelensky_says = input("Here in Ukraine, we have been waiting for you...Now choose to ally or fight with us! (I am on this journey alone, so why would I ally with you?/ F*** you, I hate this place!): ")
+        if Zelensky_says == 'I am on this journey alone, so why would I ally with you?':
+            print("Fair enough, I guess we have to fight then... huh?")
+        if Zelensky_says == 'F*** you, I hate this place!':
+            print("ALRIGHT THEN.... TIME TO UNLEASH THE EPIC POWER INSIDE OF THIS COUNTRY")
+    
+    def Anthony_Albanese():
+        Anthony_Albanese_says = input("Howdy mate, here in Australia we provide the most comfortable and fun experience any tourist would dream of! (I came here to kill you, not to hang with some stupid kangaroos/Why is there a koala on me...):  ")
+        if Anthony_Albanese_says == 'I came here to kill you, not to hang with some stupid kangaroos':
+            print("Aight mate, we'll play by your rules!")
+        if Anthony_Albanese_says == 'Why is there a koala on me...':
+            print("That was all apart of my plan.....")
+
+    def Rishi():
+        Rishi_says = input("Welcome to the UK, would you like a cup of tea before we fight *sips tea* (No, it tastes like ass/Sure, this will be the last cup of tea you'll have): ")
+        if Rishi_says == 'No, it tastes like ass':
+            print("NOW THAT YOU DISRESPECTED OUR COFFEE, YOU WILL DIE!!!")
+        if Rishi_says == 'Sure, this will be the last cup of tea you will have':
+            print("I like your arrogance youngling, but let my servant here pour you some coffee...")
+    
+    def Kim_Jong():
+        Kim_Jong_says = input("Welcome to North Korea, how may I assist you today? (I wanted you to challenge me to a fight, in order for me to conquer this whole world/If your fat self would stop threatening us by a nuke, we can handle it like real men and fight one-on-one): ")
+        if Kim_Jong_says == 'I wanted you to challenge me to a fight, in order for me to conquer this whole world':
+            print("Okay then, if you lose, I will kill you!")
+        if Kim_Jong_says == 'If your fat self would stop threatening us by a nuke, we can handle it like real men and fight one-on-one':
+            print("okay then --> GUARDS, TRAP HIM SO HE WON'T LEAVE UNTIL WE FIGHT!")
+    
+    def Frank_Walter():
+        Frank_Walter_says = input("The leader of old Germany.. Adolf Hitler.. Maybe I'll become just like him later on... (Become like Adolf Hitler? Not if Im here/Okay man, I don't want to interfere with any racist ideas of yours!): ")
+        if Fgr
+        
