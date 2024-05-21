@@ -12,9 +12,6 @@ class Battle():
         turtle.tracer(0)
         self.boss = boss
         self.player = player
-        self.hang = Hang.Hangman(boss['image'], boss['Name'])
-        self.nukeguess = nukeguess.num_guess(boss['Name'], boss['item'], boss['image'])
-        self.games = [self.hang, self.nukeguess]
         turtle.penup()
     
     def victory(self):
@@ -45,22 +42,28 @@ class Battle():
     def rank6battle(self):
         turtle.goto(0, 0)
         turtle.clear()
-        num = random.randint(0, 1)
-        random_game = self.games[num]
-        result = random_game.game()
-        if result == True:
-            self.boss['health'] -= self.player['attack']
-            if self.boss['health'] <= 0:
-                # create a victory function
-                return self.victory()
-            else:
-                num -= 1
-                turtle.clear()
-                turtle.goto(0, 400)
-                turtle.write(arg=f"You have attacked {self.boss['Name']}. His health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
-                turtle.update()
-                time.sleep(2)
-                return self.rank6battle()
+        a = True
+        while a:
+            self.hang = Hang.Hangman(self.boss['image'], self.boss['Name'])
+            self.nukeguess = nukeguess.num_guess(self.boss['Name'], self.boss['item'], self.boss['image'])
+            self.games = [self.hang, self.nukeguess]
+            turtle.clear()
+            num = random.randint(0, 1)
+            random_game = self.games[num]
+            result = random_game.game()
+            if result == True:
+                self.boss['health'] -= self.player['attack']
+                if self.boss['health'] <= 0:
+                    # create a victory function
+                    return self.victory()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"You have attacked {self.boss['Name']}. His health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(2)
+                    
         else:
             self.player['health'] -= self.boss['attack']
             if self.player['health'] <= 0:

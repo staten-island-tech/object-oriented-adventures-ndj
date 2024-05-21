@@ -60,6 +60,7 @@ class Market():
                     return
             else:
                 self.screen_commands.text_input(' ', 'I sell armor which can increase your health so you survive stronger hits')
+                self.screen_commands.text_input(' ', 'Click on the armor you want to buy!')
 
 
 
