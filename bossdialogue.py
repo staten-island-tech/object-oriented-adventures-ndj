@@ -74,5 +74,17 @@ class BD:
     
     def Frank_Walter():
         Frank_Walter_says = input("The leader of old Germany.. Adolf Hitler.. Maybe I'll become just like him later on... (Become like Adolf Hitler? Not if Im here/Okay man, I don't want to interfere with any racist ideas of yours!): ")
-        if Fgr
+        if Frank_Walter_says == 'Become like Adolf Hitler? Not if Im here':
+            print("YESSS, AND THEN THE WHOLE WORLD WILL SUBMIT TO ME")
+        if Frank_Walter_says == 'Okay man, I dont want to interfere with any racist ideas of yours!':
+            print("My apologies for being racist, but lets continue this battle... Shall we?")
+
+    def Abdourahamane_Tchiani():
+        Abdourahamane_Tchiani_says = input("Welcome to Niger... The Most SAFEST Country In The World! Care to trade? (No, I only came here to defeat you!/It proves no purpose to me, but I guess we could come up with a resolve...): ")
+        if Abdourahamane_Tchiani_says == 'No, I only came here to defeat you!':
+            print("Okay then, I guess we will fight, but if I win, you give me all of your money/gold")
+        if Abdourahamane_Tchiani_says == 'It proves no purpose to me, but I guess we could come up with a resolve...':
+            print("ALRIGHTY THEN, GREET HIM WITH RESPECT AS WE APPROACH THE BEST BATTLE OF ALL TIME")
+    
+    def Mannaseh():
         
