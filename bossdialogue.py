@@ -87,4 +87,12 @@ class BD:
             print("ALRIGHTY THEN, GREET HIM WITH RESPECT AS WE APPROACH THE BEST BATTLE OF ALL TIME")
     
     def Mannaseh():
-        
+        Mannaseh_says = input("Hey, I know you came here to beat me... But spare me atleast? (Only on one condition, if you beat me in TIC TAC TOE/Although I cant, I will give you a death which is not as painful as the other presidents I killed!): ")
+        if Mannaseh_says == 'Only on one condition, if you beat me in TIC TAC TOE':
+            print("Okay then... I guess we will play by your rules!")
+        if Mannaseh_says == 'Although I cant, I will give you a death which is not as painful as the other presidents I killed!':
+            print("THANK YOU... I CANT BEAR TO LIVE IN THIS SHTTY COUNTRY NO MORE")
+    
+    def Xi():
+        Xi_says = input("欢迎来到中国，你愿意我帮助你对付中共吗？--> Translator: President Xi Jinping said if you want to be involved with the Chinese Communist Party? (Its nice to meet you President, and I like the country of China very much, but we must fight so I can continue my conquest/ Pleased to meet you president, but I really couldn't care less about the chinese.. whatever): ")
+        if Xi_says == '':
