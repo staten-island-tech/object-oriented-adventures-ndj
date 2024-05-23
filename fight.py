@@ -36,6 +36,7 @@ class Battle():
         return True
     
     def defeat(self):
+        print("skibidi")
         self.player['status'] = 'dead'
         return False
 
@@ -64,19 +65,19 @@ class Battle():
                     turtle.update()
                     time.sleep(2)
                     
-        else:
-            self.player['health'] -= self.boss['attack']
-            if self.player['health'] <= 0:
-                # create a defeat function
-                return self.defeat()
             else:
-                num -= 1
-                turtle.clear()
-                turtle.goto(0, 400)
-                turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
-                turtle.update()
-                time.sleep(1)
-                return self.rank6battle()
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank6battle()
     
     def rank5battle(self):
         turtle.goto(0, 0)
@@ -103,19 +104,19 @@ class Battle():
                     turtle.update()
                     time.sleep(2)
                     
-        else:
-            self.player['health'] -= self.boss['attack']
-            if self.player['health'] <= 0:
-                # create a defeat function
-                return self.defeat()
             else:
-                num -= 1
-                turtle.clear()
-                turtle.goto(0, 400)
-                turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
-                turtle.update()
-                time.sleep(1)
-                return self.rank5battle()
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank5battle()
 
     def rank4battle(self):
         turtle.goto(0, 0)
@@ -142,19 +143,19 @@ class Battle():
                     turtle.update()
                     time.sleep(2)
                     
-        else:
-            self.player['health'] -= self.boss['attack']
-            if self.player['health'] <= 0:
-                # create a defeat function
-                return self.defeat()
             else:
-                num -= 1
-                turtle.clear()
-                turtle.goto(0, 400)
-                turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
-                turtle.update()
-                time.sleep(1)
-                return self.rank4battle()
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank4battle()
     
     def rank3battle(self):
         turtle.goto(0, 0)
@@ -181,19 +182,19 @@ class Battle():
                     turtle.update()
                     time.sleep(2)
                     
-        else:
-            self.player['health'] -= self.boss['attack']
-            if self.player['health'] <= 0:
-                # create a defeat function
-                return self.defeat()
             else:
-                num -= 1
-                turtle.clear()
-                turtle.goto(0, 400)
-                turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
-                turtle.update()
-                time.sleep(1)
-                return self.rank3battle()
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank3battle()
 
     def rank2battle(self):
         turtle.goto(0, 0)
@@ -220,19 +221,19 @@ class Battle():
                     turtle.update()
                     time.sleep(2)
                     
-        else:
-            self.player['health'] -= self.boss['attack']
-            if self.player['health'] <= 0:
-                # create a defeat function
-                return self.defeat()
             else:
-                num -= 1
-                turtle.clear()
-                turtle.goto(0, 400)
-                turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
-                turtle.update()
-                time.sleep(1)
-                return self.rank2battle()
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank2battle()
 
     def rank1battle(self):
         turtle.goto(0, 0)
@@ -259,18 +260,18 @@ class Battle():
                     turtle.update()
                     time.sleep(2)
                     
-        else:
-            self.player['health'] -= self.boss['attack']
-            if self.player['health'] <= 0:
-                # create a defeat function
-                return self.defeat()
             else:
-                num -= 1
-                turtle.clear()
-                turtle.goto(0, 400)
-                turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
-                turtle.update()
-                time.sleep(1)
-                return self.rank1battle()
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank1battle()
     
     

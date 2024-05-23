@@ -6,6 +6,7 @@ import json
 import time
 import fight
 import random
+import loss
 
 f = open("player.json",)
 user = json.load(f)
@@ -97,7 +98,8 @@ class Map():
                     turtle.clear()
                 self.playerdict['money'] += reward
             else:
-                return 
+                loss.Loss()
+                
         
         
     def rank_2(self):
