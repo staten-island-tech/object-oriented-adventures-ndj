@@ -12,9 +12,6 @@ class Battle():
         turtle.tracer(0)
         self.boss = boss
         self.player = player
-        self.hang = Hang.Hangman(boss['image'], boss['Name'])
-        self.nukeguess = nukeguess.num_guess(boss['Name'], boss['item'], boss['image'])
-        self.games = [self.hang, self.nukeguess]
         turtle.penup()
     
     def victory(self):
@@ -39,55 +36,242 @@ class Battle():
         return True
     
     def defeat(self):
+        print("skibidi")
         self.player['status'] = 'dead'
         return False
 
     def rank6battle(self):
         turtle.goto(0, 0)
         turtle.clear()
-        num = random.randint(0, 1)
-        random_game = self.games[num]
-        result = random_game.game()
-        if result == True:
-            self.boss['health'] -= self.player['attack']
-            if self.boss['health'] <= 0:
-                # create a victory function
-                return self.victory()
+        a = True
+        while a:
+            self.hang = Hang.Hangman(self.boss['image'], self.boss['Name'])
+            self.nukeguess = nukeguess.num_guess(self.boss['Name'], self.boss['item'], self.boss['image'])
+            self.games = [self.hang, self.nukeguess]
+            turtle.clear()
+            num = random.randint(0, 1)
+            random_game = self.games[num]
+            result = random_game.game()
+            if result == True:
+                self.boss['health'] -= self.player['attack']
+                if self.boss['health'] <= 0:
+                    # create a victory function
+                    return self.victory()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"You have attacked {self.boss['Name']}. His health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(2)
+                    
             else:
-                num -= 1
-                turtle.clear()
-                turtle.goto(0, 400)
-                turtle.write(arg=f"You have attacked {self.boss['Name']}. His health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
-                turtle.update()
-                time.sleep(2)
-                return self.rank6battle()
-        else:
-            self.player['health'] -= self.boss['attack']
-            if self.player['health'] <= 0:
-                # create a defeat function
-                return self.defeat()
-            else:
-                num -= 1
-                turtle.clear()
-                turtle.goto(0, 400)
-                turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
-                turtle.update()
-                time.sleep(1)
-                return self.rank6battle()
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank6battle()
     
     def rank5battle(self):
-        pass
+        turtle.goto(0, 0)
+        turtle.clear()
+        a = True
+        while a:
+            self.hang = Hang.Hangman(self.boss['image'], self.boss['Name'])
+            self.nukeguess = nukeguess.num_guess(self.boss['Name'], self.boss['item'], self.boss['image'])
+            self.games = [self.hang, self.nukeguess]
+            turtle.clear()
+            num = random.randint(0, 1)
+            random_game = self.games[num]
+            result = random_game.game()
+            if result == True:
+                self.boss['health'] -= self.player['attack']
+                if self.boss['health'] <= 0:
+                    # create a victory function
+                    return self.victory()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"You have attacked {self.boss['Name']}. His health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(2)
+                    
+            else:
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank5battle()
 
     def rank4battle(self):
-        pass
+        turtle.goto(0, 0)
+        turtle.clear()
+        a = True
+        while a:
+            self.hang = Hang.Hangman(self.boss['image'], self.boss['Name'])
+            self.nukeguess = nukeguess.num_guess(self.boss['Name'], self.boss['item'], self.boss['image'])
+            self.games = [self.hang, self.nukeguess]
+            turtle.clear()
+            num = random.randint(0, 1)
+            random_game = self.games[num]
+            result = random_game.game()
+            if result == True:
+                self.boss['health'] -= self.player['attack']
+                if self.boss['health'] <= 0:
+                    # create a victory function
+                    return self.victory()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"You have attacked {self.boss['Name']}. His health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(2)
+                    
+            else:
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank4battle()
     
     def rank3battle(self):
-        pass
+        turtle.goto(0, 0)
+        turtle.clear()
+        a = True
+        while a:
+            self.hang = Hang.Hangman(self.boss['image'], self.boss['Name'])
+            self.nukeguess = nukeguess.num_guess(self.boss['Name'], self.boss['item'], self.boss['image'])
+            self.games = [self.hang, self.nukeguess]
+            turtle.clear()
+            num = random.randint(0, 1)
+            random_game = self.games[num]
+            result = random_game.game()
+            if result == True:
+                self.boss['health'] -= self.player['attack']
+                if self.boss['health'] <= 0:
+                    # create a victory function
+                    return self.victory()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"You have attacked {self.boss['Name']}. His health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(2)
+                    
+            else:
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank3battle()
 
     def rank2battle(self):
-        pass
+        turtle.goto(0, 0)
+        turtle.clear()
+        a = True
+        while a:
+            self.hang = Hang.Hangman(self.boss['image'], self.boss['Name'])
+            self.nukeguess = nukeguess.num_guess(self.boss['Name'], self.boss['item'], self.boss['image'])
+            self.games = [self.hang, self.nukeguess]
+            turtle.clear()
+            num = random.randint(0, 1)
+            random_game = self.games[num]
+            result = random_game.game()
+            if result == True:
+                self.boss['health'] -= self.player['attack']
+                if self.boss['health'] <= 0:
+                    # create a victory function
+                    return self.victory()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"You have attacked {self.boss['Name']}. His health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(2)
+                    
+            else:
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank2battle()
 
     def rank1battle(self):
-        pass
+        turtle.goto(0, 0)
+        turtle.clear()
+        a = True
+        while a:
+            self.hang = Hang.Hangman(self.boss['image'], self.boss['Name'])
+            self.nukeguess = nukeguess.num_guess(self.boss['Name'], self.boss['item'], self.boss['image'])
+            self.games = [self.hang, self.nukeguess]
+            turtle.clear()
+            num = random.randint(0, 1)
+            random_game = self.games[num]
+            result = random_game.game()
+            if result == True:
+                self.boss['health'] -= self.player['attack']
+                if self.boss['health'] <= 0:
+                    # create a victory function
+                    return self.victory()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"You have attacked {self.boss['Name']}. His health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(2)
+                    
+            else:
+                self.player['health'] -= self.boss['attack']
+                if self.player['health'] <= 0:
+                    # create a defeat function
+                    return self.defeat()
+                else:
+                    num -= 1
+                    turtle.clear()
+                    turtle.goto(0, 400)
+                    turtle.write(arg=f"{self.boss['Name']} has attacked you! Your health is now: {self.player['health']}.", align='center', font=('Times New Roman', 40, 'normal'))
+                    turtle.update()
+                    time.sleep(1)
+                    return self.rank1battle()
     
     

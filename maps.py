@@ -6,6 +6,7 @@ import json
 import time
 import fight
 import random
+import loss
 
 f = open("player.json",)
 user = json.load(f)
@@ -51,33 +52,107 @@ class Map():
         self.deactivate()
         aboss = Boss.Sort(1, self.continent)
         boss = aboss.rank_sort()
-        aboss_screen = screen.game_screen("new_challenger.gif", "boss")
-        boss_screen = aboss_screen.create(1780, 1000)
-        boss_screen.register_shape(boss['image'])
-        boss_screen.tracer(0)
-        enemy = turtle.Turtle()
-        enemy.shape(boss['image'])
-        enemy.penup()
-        enemy.goto(330, 0)
-        time.sleep(1)
-        boss_screen.update()
-        time.sleep(1)
+        if boss['status'] != 'alive':
+            the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+            the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+            the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+            the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+            the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+            turtle.write(arg=f"You can't fight {boss['Name']} twice", align='center', font=('Times New Roman', 50, 'normal'))
+            time.sleep(1)
+            turtle.clear()
+        
+        else:
+            aboss_screen = screen.game_screen("new_challenger.gif", "boss")
+            boss_screen = aboss_screen.create(1780, 1000)
+            boss_screen.register_shape(boss['image'])
+            boss_screen.tracer(0)
+            enemy = turtle.Turtle()
+            enemy.shape(boss['image'])
+            enemy.penup()
+            enemy.goto(330, 0)
+            time.sleep(1)
+            boss_screen.update()
+            time.sleep(1)
+            enemy.hideturtle()
+            fight_commands = fight.Battle(boss, self.playerdict)
+            result = fight_commands.rank6battle()
+            if result:
+                turtle.clear()
+                the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+                the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+                the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+                the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+                the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+                turtle.write(arg=f"You have defeated {boss['Name']} and have conquered {boss['country']}", align='center', font=('Times New Roman', 50, 'normal'))
+                time.sleep(1)
+                turtle.clear()
+                reward = random.randint(200, 500)
+                turtle.write(arg=f"As a reward you receive {reward} money", align='center', font=('Times New Roman', 50, 'normal'))
+                time.sleep(1)
+                turtle.clear()
+                boss['status'] = 'defeated'
+                if self.playerdict['money'] == 0:
+                    turtle.write(arg=f"You can now use the market", align='center', font=('Times New Roman', 50, 'normal'))
+                    time.sleep(1)
+                    turtle.clear()
+                self.playerdict['money'] += reward
+            else:
+                loss.Loss()
+                
         
         
     def rank_2(self):
         self.deactivate()
-        aboss = Boss.Sort(2, self.continent)
+        aboss = Boss.Sort(6, self.continent)
         boss = aboss.rank_sort()
-        aboss_screen = screen.game_screen("new_challenger.gif", "boss")
-        boss_screen = aboss_screen.create(1780, 1000)
-        boss_screen.register_shape(boss['image'])
-        boss_screen.tracer(0)
-        enemy = turtle.Turtle()
-        enemy.shape(boss['image'])
-        enemy.penup()
-        enemy.goto(330, 0)
-        time.sleep(1)
-        boss_screen.update()
+        if boss['status'] != 'alive':
+            the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+            the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+            the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+            the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+            the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+            turtle.write(arg=f"You can't fight {boss['Name']} twice", align='center', font=('Times New Roman', 50, 'normal'))
+            time.sleep(1)
+            turtle.clear()
+        
+        else:
+            aboss_screen = screen.game_screen("new_challenger.gif", "boss")
+            boss_screen = aboss_screen.create(1780, 1000)
+            boss_screen.register_shape(boss['image'])
+            boss_screen.tracer(0)
+            enemy = turtle.Turtle()
+            enemy.shape(boss['image'])
+            enemy.penup()
+            enemy.goto(330, 0)
+            time.sleep(1)
+            boss_screen.update()
+            time.sleep(1)
+            enemy.hideturtle()
+            fight_commands = fight.Battle(boss, self.playerdict)
+            result = fight_commands.rank6battle()
+            if result:
+                turtle.clear()
+                the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+                the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+                the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+                the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+                the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+                turtle.write(arg=f"You have defeated {boss['Name']} and have conquered {boss['country']}", align='center', font=('Times New Roman', 50, 'normal'))
+                time.sleep(1)
+                turtle.clear()
+                reward = random.randint(100, 200)
+                turtle.write(arg=f"As a reward you receive {reward} money", align='center', font=('Times New Roman', 50, 'normal'))
+                time.sleep(1)
+                turtle.clear()
+                boss['status'] = 'defeated'
+                if self.playerdict['money'] == 0:
+                    turtle.write(arg=f"You can now use the market", align='center', font=('Times New Roman', 50, 'normal'))
+                    time.sleep(1)
+                    turtle.clear()
+                self.playerdict['money'] += reward
+            else:
+                return 
         
         
 
@@ -85,31 +160,105 @@ class Map():
         self.deactivate()
         aboss = Boss.Sort(3, self.continent)
         boss = aboss.rank_sort()
-        aboss_screen = screen.game_screen("new_challenger.gif", "boss")
-        boss_screen = aboss_screen.create(1780, 1000)
-        boss_screen.register_shape(boss['image'])
-        boss_screen.tracer(0)
-        enemy = turtle.Turtle()
-        enemy.shape(boss['image'])
-        enemy.penup()
-        enemy.goto(330, 0)
-        time.sleep(1)
-        boss_screen.update()
+        if boss['status'] != 'alive':
+            the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+            the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+            the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+            the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+            the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+            turtle.write(arg=f"You can't fight {boss['Name']} twice", align='center', font=('Times New Roman', 50, 'normal'))
+            time.sleep(1)
+            turtle.clear()
+        
+        else:
+            aboss_screen = screen.game_screen("new_challenger.gif", "boss")
+            boss_screen = aboss_screen.create(1780, 1000)
+            boss_screen.register_shape(boss['image'])
+            boss_screen.tracer(0)
+            enemy = turtle.Turtle()
+            enemy.shape(boss['image'])
+            enemy.penup()
+            enemy.goto(330, 0)
+            time.sleep(1)
+            boss_screen.update()
+            time.sleep(1)
+            enemy.hideturtle()
+            fight_commands = fight.Battle(boss, self.playerdict)
+            result = fight_commands.rank6battle()
+            if result:
+                turtle.clear()
+                the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+                the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+                the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+                the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+                the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+                turtle.write(arg=f"You have defeated {boss['Name']} and have conquered {boss['country']}", align='center', font=('Times New Roman', 50, 'normal'))
+                time.sleep(1)
+                turtle.clear()
+                reward = random.randint(45, 90)
+                turtle.write(arg=f"As a reward you receive {reward} money", align='center', font=('Times New Roman', 50, 'normal'))
+                time.sleep(1)
+                turtle.clear()
+                boss['status'] = 'defeated'
+                if self.playerdict['money'] == 0:
+                    turtle.write(arg=f"You can now use the market", align='center', font=('Times New Roman', 50, 'normal'))
+                    time.sleep(1)
+                    turtle.clear()
+                self.playerdict['money'] += reward
+            else:
+                return 
 
     def rank_4(self):
         self.deactivate()
         aboss = Boss.Sort(4, self.continent)
         boss = aboss.rank_sort()
-        aboss_screen = screen.game_screen("new_challenger.gif", "boss")
-        boss_screen = aboss_screen.create(1780, 1000)
-        boss_screen.register_shape(boss['image'])
-        boss_screen.tracer(0)
-        enemy = turtle.Turtle()
-        enemy.shape(boss['image'])
-        enemy.penup()
-        enemy.goto(330, 0)
-        time.sleep(1)
-        boss_screen.update()
+        if boss['status'] != 'alive':
+            the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+            the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+            the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+            the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+            the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+            turtle.write(arg=f"You can't fight {boss['Name']} twice", align='center', font=('Times New Roman', 50, 'normal'))
+            time.sleep(1)
+            turtle.clear()
+        
+        else:
+            aboss_screen = screen.game_screen("new_challenger.gif", "boss")
+            boss_screen = aboss_screen.create(1780, 1000)
+            boss_screen.register_shape(boss['image'])
+            boss_screen.tracer(0)
+            enemy = turtle.Turtle()
+            enemy.shape(boss['image'])
+            enemy.penup()
+            enemy.goto(330, 0)
+            time.sleep(1)
+            boss_screen.update()
+            time.sleep(1)
+            enemy.hideturtle()
+            fight_commands = fight.Battle(boss, self.playerdict)
+            result = fight_commands.rank6battle()
+            if result:
+                turtle.clear()
+                the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+                the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+                the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+                the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+                the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+                turtle.write(arg=f"You have defeated {boss['Name']} and have conquered {boss['country']}", align='center', font=('Times New Roman', 50, 'normal'))
+                time.sleep(1)
+                turtle.clear()
+                reward = random.randint(20, 40)
+                turtle.write(arg=f"As a reward you receive {reward} money", align='center', font=('Times New Roman', 50, 'normal'))
+                time.sleep(1)
+                turtle.clear()
+                boss['status'] = 'defeated'
+                if self.playerdict['money'] == 0:
+                    turtle.write(arg=f"You can now use the market", align='center', font=('Times New Roman', 50, 'normal'))
+                    time.sleep(1)
+                    turtle.clear()
+                self.playerdict['money'] += reward
+            else:
+                return 
 
     def rank_5(self):
         self.deactivate()
@@ -122,8 +271,9 @@ class Map():
             the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
             the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
             turtle.write(arg=f"You can't fight {boss['Name']} twice", align='center', font=('Times New Roman', 50, 'normal'))
-            turtle.clear()
             time.sleep(1)
+            turtle.clear()
+        
         else:
             aboss_screen = screen.game_screen("new_challenger.gif", "boss")
             boss_screen = aboss_screen.create(1780, 1000)
@@ -135,6 +285,32 @@ class Map():
             enemy.goto(330, 0)
             time.sleep(1)
             boss_screen.update()
+            time.sleep(1)
+            enemy.hideturtle()
+            fight_commands = fight.Battle(boss, self.playerdict)
+            result = fight_commands.rank6battle()
+            if result:
+                turtle.clear()
+                the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+                the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+                the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+                the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+                the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+                turtle.write(arg=f"You have defeated {boss['Name']} and have conquered {boss['country']}", align='center', font=('Times New Roman', 50, 'normal'))
+                time.sleep(1)
+                turtle.clear()
+                reward = random.randint(10, 20)
+                turtle.write(arg=f"As a reward you receive {reward} money", align='center', font=('Times New Roman', 50, 'normal'))
+                time.sleep(1)
+                turtle.clear()
+                boss['status'] = 'defeated'
+                if self.playerdict['money'] == 0:
+                    turtle.write(arg=f"You can now use the market", align='center', font=('Times New Roman', 50, 'normal'))
+                    time.sleep(1)
+                    turtle.clear()
+                self.playerdict['money'] += reward
+            else:
+                return 
 
     def rank_6(self):
         self.deactivate()
