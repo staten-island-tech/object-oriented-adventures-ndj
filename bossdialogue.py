@@ -1,5 +1,3 @@
-import random
-
 class BD:
 
     def Putin():
@@ -94,5 +92,8 @@ class BD:
             print("THANK YOU... I CANT BEAR TO LIVE IN THIS SHTTY COUNTRY NO MORE")
     
     def Xi():
-        Xi_says = input("欢迎来到中国，你愿意我帮助你对付中共吗？--> Translator: President Xi Jinping said if you want to be involved with the Chinese Communist Party? (Its nice to meet you President, and I like the country of China very much, but we must fight so I can continue my conquest/ Pleased to meet you president, but I really couldn't care less about the chinese.. whatever): ")
-        if Xi_says == '':
+        Xi_says = input("欢迎来到中国，你愿意我帮助你对付中共吗？--> Translator: President Xi Jinping said if you want to be involved with the Chinese Communist Party? (Its nice to meet you President, and I like the country of China very much, but we must fight so I can continue my conquest/Pleased to meet you president, but I really couldn't care less about the chinese.. whatever): ")
+        if Xi_says == 'Its nice to meet you President, and I like the country of China very much, but we must fight so I can continue my conquest':
+            print("感谢那, we should get this battle started!")
+        if Xi_says == 'Pleased to meet you president, but I really couldnt care less about the chinese.. whatever':
+            print("ITS THE CHINESE COMMUNIS PARTY!!!!!")
