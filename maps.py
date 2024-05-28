@@ -104,7 +104,7 @@ class Map():
         
     def rank_2(self):
         self.deactivate()
-        aboss = Boss.Sort(6, self.continent)
+        aboss = Boss.Sort(2, self.continent)
         boss = aboss.rank_sort()
         if boss['status'] != 'alive':
             the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
