@@ -42,7 +42,9 @@ class Market():
         the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
         the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
         the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
-
+    def purchase(self, cost):
+        if self.playerdict['money'] < cost:
+            return
     def armor_seller(self):
         if self.playerdict['type'] == 'royal':
             pass
@@ -61,6 +63,14 @@ class Market():
             else:
                 self.screen_commands.text_input(' ', 'I sell armor which can increase your health so you survive stronger hits')
                 self.screen_commands.text_input(' ', 'Click on the armor you want to buy!')
+                iron = turtle.Turtle()
+                iron.speed(0)
+                iron.penup()
+                iron.goto(0, 1300)
+                self.screen.register_shape("iron_armor.gif")
+                iron.shape("iron_armor.gif")
+                turtle.update()
+                iron.onclick(print("werqpwer"))
 
 
 
