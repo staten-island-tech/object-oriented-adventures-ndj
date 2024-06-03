@@ -42,9 +42,16 @@ class Market():
         the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
         the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
         the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+
     def purchase(self, cost):
         if self.playerdict['money'] < cost:
             return
+        else:
+            certain = self.screen_commands.text_input("Are you sure ;)", f"This item costs {cost} money and you have {self.playerdict['money']} money, are you sure you want to buy it?[y/n]")
+            if certain.lower() == 'y':
+                self.playerdict['money'] -= cost
+                self.screen_commands.text_input("Purchased", f"Good purchase, your now have {self.playerdict['money']} money")
+
     def armor_seller(self):
         if self.playerdict['type'] == 'royal':
             pass
@@ -70,7 +77,7 @@ class Market():
                 self.screen.register_shape("iron_armor.gif")
                 iron.shape("iron_armor.gif")
                 turtle.update()
-                iron.onclick(print("werqpwer"))
+                iron.onclick(self.purchase(1))
 
 
 
