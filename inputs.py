@@ -34,7 +34,7 @@ class player_inputs():
             if self.colony.capitalize() == "North america":
                 return "Welcome to your new adventure!", "north_america"
             elif self.colony.capitalize() == "South america":
-                return "Good luck escaping the walls!", "south_america"
+                return "Have fun eating tacos!", "south_america"
             elif self.colony.capitalize() == "Europe":               
                 return "Get geared up for your new journey!", "europe"
             elif self.colony.capitalize() == "Africa":
