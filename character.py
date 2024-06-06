@@ -48,6 +48,12 @@ class Create_Character():
         player['health'] = health
         self.initial_health = health
         player['attack'] = attack
+        player['inventory'] = {
+            'potions': [], 
+            'armor': [],
+            'weapons': []
+        }
+        player['conquered_nations'] = []
         self.player = player
         return self.player     
 

@@ -18,8 +18,8 @@ class Map():
         self.map = map
         self.continent = continent
         self.location = location
-        a = screen.game_screen(self.map, "map")
-        self.screen = a.create(12000, 3000)
+        self.screen_commands = screen.game_screen(self.map, "map")
+        self.screen = self.screen_commands.create(12000, 3000)
         self.screen.tracer(0)
         self.screen.listen()
         self.player = player
@@ -32,7 +32,14 @@ class Map():
         self.canvas = self.screen.getcanvas()
         self.canvas.config(xscrollincrement=str(50))
         self.canvas.config(yscrollincrement=str(50))
+        self.screen.onkeypress(lambda: self.travel(), key="t")
+        self.screen.onkeypress(lambda: self.inventory(), key="i")
         self.playerdict = playerdict
+        turtle.goto(100, 0)
+        turtle.write(f"Welcome to {self.continent}", font=("Times New Roman", 60, "normal"))
+        time.sleep(2)
+        turtle.clear()
+        turtle.goto(0, 0)
     
     
     def deactivate(self):
@@ -41,6 +48,39 @@ class Map():
         self.screen.onkeypress(lambda: None, "Right")
         self.screen.onkeypress(lambda: None, "Down")
     
+    def inventory(self):
+        self.screen_commands.text_input("Inventory", self.playerdict['inventory'])
+        self.screen.onkeypress(lambda: self.move_up_maps(), key="Up")
+        self.screen.onkeypress(lambda: self.move_down_maps(), key="Down")
+        self.screen.onkeypress(lambda: self.move_left_maps(), key="Left")
+        self.screen.onkeypress(lambda: self.move_right_maps(), key="Right")
+        self.screen.onkeypress(lambda: self.travel(), key="t")
+        self.screen.onkeypress(lambda: self.inventory(), key="i")
+
+
+    def travel(self):
+        continents = ["North America", "South America", "Europe", "Africa", "Asia", "Australia"]
+        continents.remove(self.continent)
+        if 'travel' not in self.playerdict['inventory']['potions']:
+            return
+        else:
+            certain = self.screen_commands.text_input("Are you sure", "Are you sure you want to use your travel potion?[y/n]")
+            if certain.lower() == 'n':
+                self.screen_commands.text_input(" ", "Alright then")
+                the_map = Map(self.map, self.player, self.location, self.continent, self.playerdict)
+            location = self.screen_commands.text_input("Where to", f"Choose a continent to travel to out of: {continents}") 
+            while location.title() not in continents:
+                location = self.screen_commands.text_input(" ", f"Enter a continent given in the list: {continents}")
+            if len(str.split(location)) > 1:
+                a = str.split(location)
+                a[0] += "_"
+                a[0] += a[1]
+                new = a[0].lower()
+            else:
+                new = location.lower()
+            self.playerdict['inventory']['potions'].remove('travel')
+            new_map = Map(f"{new}_map.gif", self.player, new, location.title(), self.playerdict)
+
     def market(self):
         market_map = market.Market(self.player, self.location, self.continent, self.playerdict)
         # market_map.screen.onkeypress(lambda: market_map.move_left(), "Left")
@@ -98,7 +138,19 @@ class Map():
                     turtle.clear()
                 self.playerdict['money'] += reward
             else:
-                loss.Loss()
+                if 'revive' in self.playerdict['inventory']['potions']:
+                    turtle.clear()
+                    the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+                    the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+                    the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+                    the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+                    the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+                    turtle.write(arg=f"You have been defeated by {boss['Name']} but were saved by your revive potion", align='center', font=('Times New Roman', 50, 'normal'))
+                    time.sleep(1)
+                    turtle.clear()
+                    self.playerdict['inventory']['potions'].remove('revive')
+                else:
+                    loss.Loss()
                 
         
         
@@ -152,7 +204,19 @@ class Map():
                     turtle.clear()
                 self.playerdict['money'] += reward
             else:
-                return 
+                if 'revive' in self.playerdict['inventory']['potions']:
+                    turtle.clear()
+                    the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+                    the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+                    the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+                    the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+                    the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+                    turtle.write(arg=f"You have been defeated by {boss['Name']} but were saved by your revive potion", align='center', font=('Times New Roman', 50, 'normal'))
+                    time.sleep(1)
+                    turtle.clear()
+                    self.playerdict['inventory']['potions'].remove('revive')
+                else:
+                    loss.Loss()
         
         
 
@@ -206,7 +270,19 @@ class Map():
                     turtle.clear()
                 self.playerdict['money'] += reward
             else:
-                return 
+                if 'revive' in self.playerdict['inventory']['potions']:
+                    turtle.clear()
+                    the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+                    the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+                    the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+                    the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+                    the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+                    turtle.write(arg=f"You have been defeated by {boss['Name']} but were saved by your revive potion", align='center', font=('Times New Roman', 50, 'normal'))
+                    time.sleep(1)
+                    turtle.clear()
+                    self.playerdict['inventory']['potions'].remove('revive')
+                else:
+                    loss.Loss()
 
     def rank_4(self):
         self.deactivate()
@@ -258,7 +334,19 @@ class Map():
                     turtle.clear()
                 self.playerdict['money'] += reward
             else:
-                return 
+                if 'revive' in self.playerdict['inventory']['potions']:
+                    turtle.clear()
+                    the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+                    the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+                    the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+                    the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+                    the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+                    turtle.write(arg=f"You have been defeated by {boss['Name']} but were saved by your revive potion", align='center', font=('Times New Roman', 50, 'normal'))
+                    time.sleep(1)
+                    turtle.clear()
+                    self.playerdict['inventory']['potions'].remove('revive')
+                else:
+                    loss.Loss()
 
     def rank_5(self):
         self.deactivate()
@@ -310,7 +398,19 @@ class Map():
                     turtle.clear()
                 self.playerdict['money'] += reward
             else:
-                return 
+                if 'revive' in self.playerdict['inventory']['potions']:
+                    turtle.clear()
+                    the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+                    the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+                    the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+                    the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+                    the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+                    turtle.write(arg=f"You have been defeated by {boss['Name']} but were saved by your revive potion", align='center', font=('Times New Roman', 50, 'normal'))
+                    time.sleep(1)
+                    turtle.clear()
+                    self.playerdict['inventory']['potions'].remove('revive')
+                else:
+                    loss.Loss()
 
     def rank_6(self):
         self.deactivate()
@@ -362,7 +462,19 @@ class Map():
                     turtle.clear()
                 self.playerdict['money'] += reward
             else:
-                return 
+                if 'revive' in self.playerdict['inventory']['potions']:
+                    turtle.clear()
+                    the_map = Map(f"{self.location}_map.gif", self.player, self.location, self.continent, self.playerdict)
+                    the_map.screen.onkeypress(lambda: the_map.move_right_maps(), key="Right")
+                    the_map.screen.onkeypress(lambda: the_map.move_left_maps(), key="Left")
+                    the_map.screen.onkeypress(lambda: the_map.move_up_maps(), key="Up")
+                    the_map.screen.onkeypress(lambda: the_map.move_down_maps(), key="Down")
+                    turtle.write(arg=f"You have been defeated by {boss['Name']} but were saved by your revive potion", align='center', font=('Times New Roman', 50, 'normal'))
+                    time.sleep(1)
+                    turtle.clear()
+                    self.playerdict['inventory']['potions'].remove('revive')
+                else:
+                    loss.Loss() 
     
 
     def move_left_maps(self):

@@ -7,7 +7,9 @@ class player_inputs():
     def __init__(self):
         self.conquest = screen.game_screen("world_map.gif", "Conquest")
         self.map = self.conquest.create(100, 100)
-        self.conquest.text_input("How to use screens", "Utilize the scrollbars on the right and bottom of the screen to scroll up/down and left/right respectively.")
+        self.conquest.text_input("Instructions", "Utilize the arrow keys in order to move around, and make sure to respond to every text input")
+        self.conquest.text_input("Instructions", "When in the maps lobby, click 'i' to view your inventory and follow the signs")
+        self.conquest.text_input("Instructions", "When you want to travel to a new continent, visit the potions seller in the market")
         
     def player_name(self):
         self.name = self.conquest.text_input("Name", "Enter your character's name")

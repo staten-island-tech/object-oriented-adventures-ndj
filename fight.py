@@ -13,7 +13,9 @@ class Battle():
         self.boss = boss
         self.player = player
         turtle.penup()
-    
+        self.screen_commands = screen.game_screen("blank.gif", " ")
+        self.screen = self.screen_commands.create(100, 100)
+
     def victory(self):
         time.sleep(1)
         turtle.clear()
@@ -32,11 +34,15 @@ class Battle():
         turtle.goto(0, 400)
         turtle.write(arg="Victory", align="center", font=("Times New Roman", 40, 'normal'))
         time.sleep(1.5)
-        
+        self.player['conquered_nations'].append(self.boss['Name'])
+        if len(self.player['conquered_nations']) == 36:
+            turtle.clear()
+            boss.hideturtle()
+            self.screen_commands.text_input("You win", "You have defeated every boss in the game and have conquered the world!")
+            victory = screen.game_screen("winscreen.gif", "You win")
         return True
     
     def defeat(self):
-        print("skibidi")
         self.player['status'] = 'dead'
         return False
 

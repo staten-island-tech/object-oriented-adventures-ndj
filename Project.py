@@ -47,7 +47,7 @@ while time.time() < t_end:
     royal.create(100, 100)
     time.sleep(0.15)
 if player['type'] == 'warrior':
-    warrior.create(100, 100)
+    warrior.create(100, 100) 
 elif player['type'] == 'peasant':
     peasant.create(100, 100)
 elif player['type'] == 'nomad':
